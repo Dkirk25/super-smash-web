@@ -2,17 +2,16 @@
 
 import React from 'react';
 
-let user = {
-  username: 'let',
-  main: 'Ness',
-  secondary: 'Zelda',
-  score: '560',
-  wins: '12',
-  losses: '10',
-}
+const Profile = ({ user, showLeague }) => {
 
-const Profile = ({ username }) => {
-
+  return (
+    <div className="profile-wrapper">
+      <p className="profile-username">{user.username}</p>
+      <p className="profile-main">{`1. ${user.main}`}</p>
+      <p className="profile-secondary">{`2. ${user.secondary}`}</p>
+      <p onClick={showLeague}>{'back'}</p>
+    </div>
+  )
 }
 
 export default Profile;
