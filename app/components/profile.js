@@ -4,12 +4,26 @@ import React from 'react';
 
 const Profile = ({ user, showLeague }) => {
 
+  const showPrimary = (event) => {
+    event.currentTarget.className = "hidden";
+    document.getElementById('primary-label').className = "profile-primary-label";
+  }
+
+  const hidePrimary = (event) => {
+    event.currentTarget.className = "hidden";
+    document.getElementById('primary').className = "profile-primary";
+  }
+
   return (
     <div className="profile-wrapper">
-      <p className="profile-username">{user.username}</p>
-      <p className="profile-main">{`1. ${user.main}`}</p>
-      <p className="profile-secondary">{`2. ${user.secondary}`}</p>
-      <p onClick={showLeague}>{'back'}</p>
+      <center>
+        <p className="profile-username">{user.username}</p>
+        <p className="profile-score">{`${user.score}`}</p>
+        <span id="primary" className="profile-primary">{`${user.main}`}</span>
+        {/* <span onMouseLeave={hidePrimary} id="primary-label" className="hidden">{'Primary'}</span> */}
+        <p className="profile-secondary">{`${user.secondary}`}</p>
+        <p onClick={showLeague} className="profile-back-btn">{'back'}</p>
+      </center>
     </div>
   )
 }

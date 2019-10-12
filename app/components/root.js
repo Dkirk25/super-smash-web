@@ -1,6 +1,7 @@
 // root component: handle navigation and pass props
 
 import React, { Component } from 'react';
+import Header from './header';
 import Profile from './profile';
 import League from './league';
 
@@ -36,7 +37,47 @@ let javi = {
   league: 'salty suite'
 }
 
-let users = sort([steve, kirk, javi]);
+let dave = {
+  username: 'Redd_Eyezz',
+  main: 'Luigi',
+  secondary: 'Ice Climbers',
+  score: '200',
+  wins: '20',
+  losses: '2',
+  league: 'salty suite'
+}
+
+let cody = {
+  username: 'MakeMeInk',
+  main: 'Dark Pit',
+  secondary: 'Zero Suit Samus',
+  score: '190',
+  wins: '19',
+  losses: '3',
+  league: 'salty suite'
+}
+
+let colby = {
+  username: 'Bone',
+  main: 'Pikachu',
+  secondary: 'Ganondorf',
+  score: '140',
+  wins: '14',
+  losses: '8',
+  league: 'salty suite'
+}
+
+let person = {
+  username: 'Human',
+  main: 'Mario',
+  secondary: 'Hero',
+  score: '220',
+  wins: '22',
+  losses: '0',
+  league: 'salty suite'
+}
+
+let users = sort([steve, kirk, javi, dave, cody, colby, person]);
 
 
 
@@ -65,15 +106,15 @@ class Root extends Component {
     if(this.state.focus === 'league') {
       return (
         <div>
+          <Header />
           <League users={users} showProfile={this.showProfile}/>
         </div>
       )
     } else if (this.state.focus === 'profile') {
       return (
         <div>
-          <center>
-            <Profile user={this.state.user} showLeague={this.showLeague}/>
-          </center>
+          <Header />
+          <Profile user={this.state.user} showLeague={this.showLeague}/>
         </div>
       )
     }

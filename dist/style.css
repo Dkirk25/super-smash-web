@@ -10,40 +10,102 @@ p {
   color: white;
 }
 
-.profile-username {
-  font-size: 1.6em;
-  margin: 0%;
+.header-wrapper {
+  margin: 30px 0px 30px 0px;
 }
 
-.profile-main {
-  font-size: 1.3em;
-  margin: 0%;
+.smash-logo {
+  height: 150px;
 }
+
+.profile-username {
+  font-size: 2.0em;
+  margin: 30px 0px 30px 0px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+
+
+.profile-score {
+  font-size: 1.5em;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.profile-primary {
+  font-size: 1.5em;
+  font-family: 'Roboto Mono', monospace;
+  display: inline;
+  color: white;
+}
+
+.profile-primary-label {
+  font-size: 1.5em;
+  font-family: 'Roboto Mono', monospace;
+  display: inline;
+  color: white;
+}
+
+.profile-back-btn {
+  font-size: 1.5em;
+  font-family: 'Roboto Mono', monospace;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.profile-back-btn:hover {
+  color: #ED2526;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
 
 .profile-secondary {
   font-size: 1em;
   margin: 0%;
+  font-family: 'Roboto Mono', monospace;
 }
 
+.league-title {
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
+}
 
 .league-header {
-  font-size: 1.6em;
+  font-size: 1.4em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .league-user-wrapper {
   display: grid;
-  grid-template-columns: [lu1] 50px [lu2] 1fr [lu3] 1fr [lu4] 1fr [lu5] 50px [lu6];
-  width: 30%;
+  grid-template-columns: [lu1] 10px [lu2] 1fr [lu3] 1fr [lu4] 1fr [lu5] 10px [lu6];
+  max-width: 800px;
+  height: 75px;
 }
 
 .league-user-username {
   grid-column: lu2 / lu3;
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.league-user-username:hover {
+  color: #ED2526;
 }
 
 .league-user-main {
   grid-column: lu3 / lu4;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .league-user-points {
   grid-column: lu4 / lu5;
+  font-family: 'Roboto Mono', monospace;
 }
