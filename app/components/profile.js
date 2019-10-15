@@ -1,6 +1,7 @@
 // show info for a single user
 
 import React from 'react';
+import Back from './back';
 
 const Profile = ({ user, showLeague }) => {
 
@@ -22,7 +23,7 @@ const Profile = ({ user, showLeague }) => {
         <span id="primary" className="profile-primary">{`${user.main}`}</span>
         {/* <span onMouseLeave={hidePrimary} id="primary-label" className="hidden">{'Primary'}</span> */}
         <p className="profile-secondary">{`${user.secondary}`}</p>
-        <p onClick={showLeague} className="profile-back-btn">{'back'}</p>
+        <Back func={showLeague}/>
       </center>
     </div>
   )

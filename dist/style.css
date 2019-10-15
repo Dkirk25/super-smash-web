@@ -109,3 +109,21 @@ p {
   grid-column: lu4 / lu5;
   font-family: 'Roboto Mono', monospace;
 }
+
+.back-btn {
+  color: #ED2526;
+  background-color: white;
+  cursor: pointer;
+}
+
+
+
+.landing-login-btn {
+  color: white;
+  cursor: pointer;
+}
+
+.landing-signup-btn {
+  color: white;
+  cursor: pointer;
+}

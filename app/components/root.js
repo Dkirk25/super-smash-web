@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import Header from './header';
 import Profile from './profile';
 import League from './league';
+import Landing from './landing';
+import Login from './login';
+import Signup from './signup';
 
 import sort from './sort';
 
@@ -86,12 +89,17 @@ class Root extends Component {
     super();
 
     this.state = {
-      focus: 'league',
-      user: ''
+      focus: 'landing',
+      user: '',
+      userid: null,
     }
 
     this.showProfile = this.showProfile.bind(this);
     this.showLeague = this.showLeague.bind(this);
+    this.showLogin = this.showLogin.bind(this);
+    this.showSignup = this.showSignup.bind(this);
+    this.showLanding = this.showLanding.bind(this);
+    this.checkCookie = this.checkCookie.bind(this);
   }
 
   showProfile (user) {
@@ -102,21 +110,85 @@ class Root extends Component {
     this.setState({ focus: 'league' });
   }
 
+  showLanding () {
+    this.setState({ focus: 'landing' })
+  }
+
+  showLogin () {
+    console.log('kogin')
+    this.setState({ focus: 'login' });
+  }
+
+  showSignup () {
+    this.setState({ focus: 'signup' });
+  }
+
+  checkCookie () {
+    console.log(document.cookie.userid);
+    let cookie = document.cookie.split(';').filter((string) => {
+      if(string.substring(0,6) === 'userid') return string;
+    })[0];
+
+    if(cookie) {
+      this.setState({ userid: cookie.split('=')[1], focus: 'league' });
+    }
+  }
+
+  componentDidMount () {
+    this.checkCookie();
+  }
+
   render () {
-    if(this.state.focus === 'league') {
-      return (
-        <div>
-          <Header />
-          <League users={users} showProfile={this.showProfile}/>
-        </div>
-      )
-    } else if (this.state.focus === 'profile') {
-      return (
-        <div>
-          <Header />
-          <Profile user={this.state.user} showLeague={this.showLeague}/>
-        </div>
-      )
+    if(this.state.userid) {
+      if(this.state.focus === 'league') {
+        return (
+          <div>
+            <Header />
+            <League users={users} showProfile={this.showProfile}/>
+          </div>
+        )
+      } else if (this.state.focus === 'profile') {
+        return (
+          <div>
+            <Header />
+            <Profile user={this.state.user} showLeague={this.showLeague}/>
+          </div>
+        )
+      } else if (this.state.focus === 'login') {
+        return (
+          <div>
+            <Header />
+            <Login />
+          </div>
+        )
+      } else if (this.state.focus === 'signup') {
+
+      }
+    } 
+    
+    else {
+      if(this.state.focus === 'login') {
+        return (
+          <div>
+            <Header />
+            <Login showLanding={this.showLanding}/>
+          </div>
+        )
+      } else if (this.state.focus === 'signup') {
+        return (
+          <div>
+            <Header />
+            <Signup showLanding={this.showLanding}/>
+          </div>
+        )
+      } else if (this.state.focus === 'landing') {
+        return (
+          <div>
+            <Header />
+            <Landing showLogin={this.showLogin} showSignup={this.showSignup}/>
+          </div>
+        )
+      }
     }
   }
 }
