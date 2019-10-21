@@ -5,7 +5,7 @@ import Header from './header';
 import Profile from './profile';
 import League from './league';
 import Landing from './landing';
-import Login from './login';
+import Signin from './signin';
 import Signup from './signup';
 
 import sort from './sort';
@@ -96,7 +96,7 @@ class Root extends Component {
 
     this.showProfile = this.showProfile.bind(this);
     this.showLeague = this.showLeague.bind(this);
-    this.showLogin = this.showLogin.bind(this);
+    this.showSignin = this.showSignin.bind(this);
     this.showSignup = this.showSignup.bind(this);
     this.showLanding = this.showLanding.bind(this);
     this.checkCookie = this.checkCookie.bind(this);
@@ -114,9 +114,8 @@ class Root extends Component {
     this.setState({ focus: 'landing' })
   }
 
-  showLogin () {
-    console.log('kogin')
-    this.setState({ focus: 'login' });
+  showSignin () {
+    this.setState({ focus: 'signin' });
   }
 
   showSignup () {
@@ -154,11 +153,11 @@ class Root extends Component {
             <Profile user={this.state.user} showLeague={this.showLeague}/>
           </div>
         )
-      } else if (this.state.focus === 'login') {
+      } else if (this.state.focus === 'signin') {
         return (
           <div>
             <Header />
-            <Login />
+            <Signin />
           </div>
         )
       } else if (this.state.focus === 'signup') {
@@ -167,11 +166,11 @@ class Root extends Component {
     } 
     
     else {
-      if(this.state.focus === 'login') {
+      if(this.state.focus === 'signin') {
         return (
           <div>
             <Header />
-            <Login showLanding={this.showLanding}/>
+            <Signin showLanding={this.showLanding}/>
           </div>
         )
       } else if (this.state.focus === 'signup') {
@@ -185,7 +184,7 @@ class Root extends Component {
         return (
           <div>
             <Header />
-            <Landing showLogin={this.showLogin} showSignup={this.showSignup}/>
+            <Landing showSignin={this.showSignin} showSignup={this.showSignup}/>
           </div>
         )
       }

@@ -116,14 +116,50 @@ p {
   cursor: pointer;
 }
 
+.landing-signin-wrapper {
+  margin: 10px;
+}
 
+.landing-signup-wrapper {
+  margin: 10px;
+}
 
-.landing-login-btn {
+.landing-signin-btn {
   color: white;
   cursor: pointer;
+  background-color: black;
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid #ED2526;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition-duration: 0.3s;
 }
 
 .landing-signup-btn {
   color: white;
   cursor: pointer;
+  background-color: black;
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid #ED2526;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition-duration: 0.3s;
 }
+
+.landing-signin-btn:hover {
+  background-color: #ED2526;
+}
+
+.landing-signup-btn:hover {
+  background-color: #ED2526;
+}
+
+.character-img {
+  width: 100px;
+  height: auto;
+}
+
+
+
