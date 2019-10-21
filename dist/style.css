@@ -156,10 +156,134 @@ p {
   background-color: #ED2526;
 }
 
+
+
+
+
+
+.character-name {
+  position: absolute;
+  z-index: 999;
+  text-align: center;
+  bottom: 2px;
+  width: 100%;
+  margin: 0%;
+  font-family: 'Archivo Black', sans-serif;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 0.8em;
+}
+
 .character-img {
   width: 100px;
   height: auto;
 }
 
+.character-img-wrapper {
+  width: 100px;
+  height: 75px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid rgb(68, 68, 68);
+  border-radius: 2px;
+}
 
+.character-row-wrapper {
+  display: grid;
+  grid-template-columns: [cr1] 110px [cr2] 110px [cr3] 110px [cr4] 110px [cr5] 110px [cr6] 110px [cr7] 110px [cr8] 110px [cr9] 110px [cr10] 110px [cr11] 110px [cr12] 110px [cr13] 110px [cr14] 110px [cr15];
+  margin: 5px 0px;
+  width: 1424px;
+}
+
+.character-list-wrapper {
+  margin: 10px 0px 30px 0px;
+}
+
+.primary {
+  border: 2px solid dodgerblue;
+}
+
+.secondary {
+  border: 2px solid mediumspringgreen;
+}
+
+.primary-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4em;
+  color: dodgerblue;
+  margin: 3px 6px 3px 3px;
+  display: inline-block;
+}
+
+.secondary-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4em;
+  color: mediumspringgreen;
+  margin: 3px 0px 3px 3px;
+  display: inline-block;
+}
+
+.character-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4em;
+  color: rgb(155, 155, 155);
+  margin: 3px 4px;
+  display: inline-block;
+}
+
+.character-label-wrapper {
+  margin: 15px 0px;
+}
+
+
+
+
+.submit-wrapper {
+  margin: 10px;
+}
+
+.submit {
+  color: white;
+  cursor: pointer;
+  background-color: black;
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid #ED2526;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition-duration: 0.3s;
+}
+
+.submit:hover {
+  background-color: #ED2526;
+}
+
+
+
+
+
+
+
+
+.input-wrapper {
+  text-align: center;
+  margin: 3px 0px;
+}
+
+.input {
+  width: 80%;
+  max-width: 300px;
+  font-size: 1.4em;
+  outline: none;
+  transition-duration: 0.3s;
+  border: 2px solid rgb(68, 68, 68);
+  border-radius: 7px;
+  padding: 4px 6px;
+  background-color: black;
+  color: white;
+}
+
+.input:focus {
+  border-color: #ED2526;
+}
 

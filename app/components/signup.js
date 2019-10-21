@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Back from './back';
 import Input from './input';
+import Submit from './submit';
 import CharacterList from './characterList';
 
 class Signup extends Component {
@@ -9,19 +10,25 @@ class Signup extends Component {
     super(props);
 
     this.state = {
-
+      primary: '',
+      secondary: '',
     }
 
     this.firstName = React.createRef();
     this.lastName = React.createRef();
     this.email = React.createRef();
     this.username = React.createRef();
-    this.mainCharacter = React.createRef();
+    this.primaryCharacter = React.createRef();
     this.secondaryCharacter = React.createRef();
     this.encryptedPassword = React.createRef();
     this.friendCode = React.createRef();
 
     this.submit = this.submit.bind(this);
+    this.submitCharacters = this.submitCharacters.bind(this);
+  }
+
+  submitCharacters (primary, secondary) {
+    this.setState({ primary, secondary });
   }
 
   submit () {
@@ -30,7 +37,7 @@ class Signup extends Component {
       'lastName': this.lastName.current.value,
       'email': this.email.current.value,
       'username': this.username.current.value,
-      'mainCharacter': this.mainCharacter.current.value,
+      'mainCharacter': this.primaryCharacter.current.value,
       'secondaryCharacter': this.secondaryCharacter.current.value,
       'encryptedPassword': this.encryptedPassword.current.value,
       'friendCode': this.friendCode.current.value
@@ -50,13 +57,21 @@ class Signup extends Component {
         <Input placeholder="first name" ref={this.firstName}/>
         <Input placeholder="last name" ref={this.lastName}/>
         <Input placeholder="email" ref={this.email}/>
-        <Input placeholder="switch username" ref={this.username}/>
-        <Input placeholder="main" ref={this.mainCharacter}/>
-        <Input placeholder="secondary" ref={this.secondaryCharacter}/>
         <Input placeholder="password" ref={this.encryptedPassword}/>
+        <Input placeholder="switch username" ref={this.username}/>
         <Input placeholder="friend code" ref={this.friendCode}/>
-        <CharacterList />
-        <button onClick={this.submit}>submit</button>
+        <center className="character-label-wrapper">
+          <div>
+            <p className="character-label">{"Primary:"}</p>
+            <p className="primary-label">{`${this.state.primary ? this.state.primary : '?'}`}</p>
+          </div>
+          <div>
+            <p className="character-label">{"Secondary:"}</p>
+            <p className="secondary-label">{`${this.state.secondary ? this.state.secondary : '?'}`}</p>
+          </div>
+        </center>
+        <CharacterList submitCharacters={this.submitCharacters}/>
+        <center><Submit func={this.submit} text="Submit"/></center>
       </div>
     )
   }
