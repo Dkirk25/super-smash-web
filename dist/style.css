@@ -134,6 +134,7 @@ p {
   padding: 5px 10px;
   border-radius: 15px;
   transition-duration: 0.3s;
+  outline: none;
 }
 
 .landing-signup-btn {
@@ -146,6 +147,7 @@ p {
   padding: 5px 10px;
   border-radius: 15px;
   transition-duration: 0.3s;
+  outline: none;
 }
 
 .landing-signin-btn:hover {
@@ -252,6 +254,7 @@ p {
   padding: 5px 10px;
   border-radius: 15px;
   transition-duration: 0.3s;
+  outline: none;
 }
 
 .submit:hover {

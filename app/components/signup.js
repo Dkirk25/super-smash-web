@@ -37,8 +37,8 @@ class Signup extends Component {
       'lastName': this.lastName.current.value,
       'email': this.email.current.value,
       'username': this.username.current.value,
-      'mainCharacter': this.primaryCharacter.current.value,
-      'secondaryCharacter': this.secondaryCharacter.current.value,
+      'mainCharacter': this.state.primary,
+      'secondaryCharacter': this.state.secondary,
       'encryptedPassword': this.encryptedPassword.current.value,
       'friendCode': this.friendCode.current.value
     })
