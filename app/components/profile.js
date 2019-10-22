@@ -23,7 +23,7 @@ const Profile = ({ user, showLeague }) => {
         <span id="primary" className="profile-primary">{`${user.main}`}</span>
         {/* <span onMouseLeave={hidePrimary} id="primary-label" className="hidden">{'Primary'}</span> */}
         <p className="profile-secondary">{`${user.secondary}`}</p>
-        <Back func={showLeague}/>
+        <Back path='league'/>
       </center>
     </div>
   )

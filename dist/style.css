@@ -46,17 +46,6 @@ p {
   color: white;
 }
 
-.profile-back-btn {
-  font-size: 1.5em;
-  font-family: 'Roboto Mono', monospace;
-  transition-duration: 0.3s;
-  cursor: pointer;
-}
-
-.profile-back-btn:hover {
-  color: #ED2526;
-}
-
 .hidden {
   display: none;
 }
@@ -73,27 +62,34 @@ p {
 }
 
 .league-title {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-family: 'Roboto', sans-serif;
 }
 
 .league-header {
   font-size: 1.4em;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.league-user-wrapper-main {
+  display: grid;
+  grid-auto-rows: 80px;
 }
 
 .league-user-wrapper {
   display: grid;
-  grid-template-columns: [lu1] 10px [lu2] 1fr [lu3] 1fr [lu4] 1fr [lu5] 10px [lu6];
+  grid-template-columns: [lu1] 0px [lu2] 1fr [lu3] 1fr [lu4] 1fr [lu5] 0px [lu6];
   max-width: 800px;
-  height: 75px;
 }
 
 .league-user-username {
   grid-column: lu2 / lu3;
+  color: white;
   font-family: 'Roboto Mono', monospace;
   cursor: pointer;
   transition-duration: 0.3s;
+  text-decoration: none;
+  margin: auto 0px;
 }
 
 .league-user-username:hover {
@@ -110,21 +106,37 @@ p {
   font-family: 'Roboto Mono', monospace;
 }
 
+.back-btn-wrapper {
+  margin: 20px;
+}
+
 .back-btn {
-  color: #ED2526;
-  background-color: white;
+  color: white;
   cursor: pointer;
+  background-color: black;
+  font-size: 1.6em;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid #ED2526;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition-duration: 0.3s;
+  outline: none;
+  text-decoration: none;
 }
 
-.landing-signin-wrapper {
+.back-btn:hover {
+  background-color: #ED2526;
+}
+
+/* .landing-signin-wrapper {
   margin: 10px;
+} */
+
+.landing-wrapper {
+  margin: 30px 0px;
 }
 
-.landing-signup-wrapper {
-  margin: 10px;
-}
-
-.landing-signin-btn {
+.landing-btn {
   color: white;
   cursor: pointer;
   background-color: black;
@@ -135,9 +147,10 @@ p {
   border-radius: 15px;
   transition-duration: 0.3s;
   outline: none;
+  text-decoration: none;
 }
 
-.landing-signup-btn {
+/* .landing-signup-btn {
   color: white;
   cursor: pointer;
   background-color: black;
@@ -148,7 +161,7 @@ p {
   border-radius: 15px;
   transition-duration: 0.3s;
   outline: none;
-}
+} */
 
 .landing-signin-btn:hover {
   background-color: #ED2526;
@@ -189,6 +202,12 @@ p {
   position: relative;
   border: 2px solid rgb(68, 68, 68);
   border-radius: 2px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.character-img-wrapper:hover {
+  border-color: white;
 }
 
 .character-row-wrapper {
@@ -203,11 +222,11 @@ p {
 }
 
 .primary {
-  border: 2px solid dodgerblue;
+  border: 2px solid dodgerblue !important;
 }
 
 .secondary {
-  border: 2px solid mediumspringgreen;
+  border: 2px solid mediumspringgreen !important;
 }
 
 .primary-label {
@@ -234,12 +253,19 @@ p {
   display: inline-block;
 }
 
-.character-label-wrapper {
+.character-label-wrapper-center {
   margin: 15px 0px;
 }
 
 
+.error-message {
+  color: #ED2526;
+  font-family: 'Roboto Mono', monospace;
+}
 
+.signin-submit-wrapper {
+  margin: 20px 0px;
+}
 
 .submit-wrapper {
   margin: 10px;
@@ -249,7 +275,7 @@ p {
   color: white;
   cursor: pointer;
   background-color: black;
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-family: 'Roboto', sans-serif;
   border: 2px solid #ED2526;
   padding: 5px 10px;
@@ -293,6 +319,29 @@ p {
 
 
 
+
+
+
+.character-label-wrapper {
+  margin: 0%;
+}
+
+.stock-icon-wrapper {
+  display: inline-block;
+}
+
+.stock-icon {
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: auto;
+}
+
+.stock-icon-placeholder {
+  display: inline-block;
+  width: 40px;
+  height: auto;
+}
 
 
 

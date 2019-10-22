@@ -68,7 +68,7 @@ class CharacterList extends Component {
             )
           })
         }</div>
-        </center>
+      </center>
     )
   }
 }

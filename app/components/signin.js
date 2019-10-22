@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 import Back from './back';
 import Input from './input';
 
 class Signin extends Component {
   constructor (props) {
     super(props);
+
+    this.state = {
+      login: false,
+      error: false
+    }
 
     this.email = React.createRef();
     this.password = React.createRef();
@@ -14,21 +21,25 @@ class Signin extends Component {
   }
 
   submit () {
-    Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
-      'email': this.email.current.value,
-      'password': this.password.current.value || ''
-    })
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
+    // Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
+    //   'email': this.email.current.value,
+    //   'password': this.password.current.value || ''
+    // })
+    // .then(response => console.log(response))
+    // .catch(error => console.log(error))
+
+    this.setState({ error: true });
   }
 
   render () {
     return (
       <div>
-        <Back func={this.props.showLanding}/>
+        <center><Back path=''/></center>
         <Input placeholder="email" ref={this.email}/>
         <Input placeholder="password" ref={this.password}/>
-        <button onClick={this.submit}>submit</button>
+        <center className="signin-submit-wrapper"><button className="submit" onClick={this.submit}>submit</button></center>
+        <center>{this.state.error ? <p className="error-message">email or password is incorrect</p> : <p></p>}</center>
+        {this.state.login ? <Redirect to='/league'></Redirect> : null}
       </div>
     )
   }
