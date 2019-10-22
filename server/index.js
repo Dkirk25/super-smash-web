@@ -1,9 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+let port = process.env.PORT || 3200;
 
 app.use(express.static('dist'));
 
-app.listen(443, () => {
-  console.log('Roger Roger, port 3200');
+app.listen(port, () => {
+  console.log(`Roger Roger, port: ${port}`);
 })
