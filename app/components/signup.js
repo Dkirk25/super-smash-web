@@ -11,7 +11,7 @@ import {
 import Back from './back';
 import Input from './input';
 import Submit from './submit';
-import CharacterList from './characterList';
+import CharacterSelection from './characterSelection';
 import StockIcon from './stockIcon';
 
 class Signup extends Component {
@@ -54,12 +54,12 @@ class Signup extends Component {
     })
     .then(response => {
       console.log(response);
+      this.setState({ login: true });
     })
     .catch(error => {
       console.log(error);
+      // tell the user they fucked up...
     })
-    
-    // this.setState({ login: true })
   }
 
   render () {
@@ -72,19 +72,7 @@ class Signup extends Component {
         <Input placeholder="password" ref={this.encryptedPassword}/>
         <Input placeholder="switch username" ref={this.username}/>
         <Input placeholder="friend code" ref={this.friendCode}/>
-        <center className="character-label-wrapper-center">
-          <div className="character-label-wrapper">
-            <p className="character-label">{"Primary:"}</p>
-            <p className="primary-label">{`${this.state.primary ? this.state.primary : '?'}`}</p>
-            {/* <StockIcon name={this.state.primary}/> */}
-          </div>
-          <div className="character-label-wrapper">
-            <p className="character-label">{"Secondary:"}</p>
-            <p className="secondary-label">{`${this.state.secondary ? this.state.secondary : '?'}`}</p>
-            {/* <StockIcon name={this.state.secondary}/> */}
-          </div>
-        </center>
-        <CharacterList submitCharacters={this.submitCharacters}/>
+        <CharacterSelection mobile={this.props.mobile} primary={this.state.primary} secondary={this.state.secondary} submitCharacters={this.submitCharacters}/>
         <center><Submit func={this.submit} text="Submit"/></center>
         {this.state.login ? <Redirect to='/league'></Redirect> : null}
       </div>

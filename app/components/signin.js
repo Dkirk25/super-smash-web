@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
+import validate from '../helpers/validate';
+
 import Back from './back';
 import Input from './input';
 
@@ -21,14 +23,23 @@ class Signin extends Component {
   }
 
   submit () {
-    Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
-      'email': this.email.current.value,
-      'password': this.password.current.value || ''
-    })
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
+    if(validate(this.email.current.value) && validate(this.password.current.value)) {
+      Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
+        'email': this.email.current.value,
+        'password': this.password.current.value,
+      })
+      .then(response => {
+        console.log(response);
+        this.setState({ login: true });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({ error: true });
+      });
+    } else {
+      this.setState({ error: true });
+    }
 
-    // this.setState({ error: true });
   }
 
   render () {

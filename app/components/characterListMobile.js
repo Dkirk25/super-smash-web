@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Character from './character';
+
+import CharacterMobile from './characterMobile';
 
 import characters from '../helpers/characters';
 
-class CharacterList extends Component {
-  constructor (props) {
-    super(props)
+class CharacterListMobile extends Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       primary: '',
@@ -50,20 +51,14 @@ class CharacterList extends Component {
   render () {
     return (
       <center>
-        <div className="character-list-wrapper" id="rgb-box">{
-          characters.rows.map((array, i) => {
-            return (
-              <div className="character-row-wrapper" key={i}>{
-                array.map((name, j) => {
-                  return (<Character key={`${i}:${j}`} name={name} select={this.select} primary={this.state.primary} secondary={this.state.secondary}/>)
-                })
-              }</div>
-            )
-          })
-        }</div>
+        <div className="character-list-mobile-wrapper">
+          {characters.list.map((name, i) => (
+          <CharacterMobile name={name} select={this.select} primary={this.state.primary} secondary={this.state.secondary}/>
+          ))}
+        </div>
       </center>
     )
   }
 }
 
-export default CharacterList;
+export default CharacterListMobile;

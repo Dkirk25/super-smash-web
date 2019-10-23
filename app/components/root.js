@@ -20,16 +20,21 @@ class Root extends Component {
     super();
 
     this.state = {
-      focus: 'landing',
+      currentUser: '',
       user: '',
       userid: null,
     }
 
     this.updateUser = this.updateUser.bind(this);
+    this.userSignin = this.userSignin.bind(this);
   }
 
   updateUser (user) {
     this.setState({ user });
+  }
+
+  userSignin (currentUser) {
+    this.setState({ currentUser });
   }
 
   render () {
