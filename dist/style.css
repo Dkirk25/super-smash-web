@@ -333,6 +333,10 @@ p {
   font-family: 'Roboto Mono', monospace;
 }
 
+.signup-submit-center {
+  margin-top: 50px;
+}
+
 .signin-submit-wrapper {
   margin: 20px 0px;
 }
@@ -419,32 +423,47 @@ p {
 
 
 
+
+.character-list-mobile-center {
+
+}
+
 .character-list-mobile-wrapper {
+  padding: 5px;
+  border: 2px solid rgb(68, 68, 68);
+  border-radius: 5px;
+  width: 80%;
+}
+
+.character-list-mobile {
   display: grid;
   grid-auto-rows: 55px;
-  width: 90%;
+  width: 100%;
   height: 200px;
   overflow: hidden;
   overflow-y: scroll;
 }
 
 .character-mobile-wrapper {
-  border: 1px solid red;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: #ED2526;
+  display: grid;
+  grid-template-columns: [cm1] 75% [cm2] 25% [cm3];
 }
 
 .character-mobile-label {
-  display: inline-block;
+  grid-column: cm1 / cm2;
+  margin: auto;
   font-family: 'Archivo Black', sans-serif;
   color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  font-size: 0.8em;
+  font-size: 1.3em;
 }
 
 .character-mobile-icon {
+  grid-column: cm2 / cm3;
+  margin: 7px 5px 5px 5px;
   width: 40px;
-  position: relative;
-  right: -20px;
-  bottom: -5px;
 }
 
 

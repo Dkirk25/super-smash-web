@@ -73,7 +73,7 @@ class Signup extends Component {
         <Input placeholder="switch username" ref={this.username}/>
         <Input placeholder="friend code" ref={this.friendCode}/>
         <CharacterSelection mobile={this.props.mobile} primary={this.state.primary} secondary={this.state.secondary} submitCharacters={this.submitCharacters}/>
-        <center><Submit func={this.submit} text="Submit"/></center>
+        <center className="signup-submit-center"><Submit func={this.submit} text="Submit"/></center>
         {this.state.login ? <Redirect to='/league'></Redirect> : null}
       </div>
     )
