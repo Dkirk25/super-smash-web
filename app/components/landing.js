@@ -10,7 +10,7 @@ import {
 import Header from './header';
 import authenticateUser from '../helpers/authenticateUser';
 
-const Landing = ({ showSignin, showSignup }) => {
+const Landing = (props) => {
   if(authenticateUser()) {
     return (<Redirect to='/league'></Redirect>);
   } else {

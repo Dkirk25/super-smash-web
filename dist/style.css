@@ -152,6 +152,10 @@ p {
   text-decoration: none;
 }
 
+.landing-btn:hover {
+  background-color: #ED2526;
+}
+
 /* .landing-signup-btn {
   color: white;
   cursor: pointer;
@@ -238,7 +242,7 @@ p {
   left: calc(-1 * 0px);
   height: calc(100% + 0px * 2);
   width: calc(100% + 0px * 2);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background: linear-gradient(120deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
   border-radius: calc(2 * 0px);
   z-index: -1;
   animation: animatedgradient 30s ease alternate infinite;
@@ -254,13 +258,13 @@ p {
 
 @keyframes animatedgradient {
 	0% {
-		background-position: 0% 50%;
-	}
-	50% {
 		background-position: 100% 50%;
-	}
+  }
+  50% {
+    background-position: 0% 50%;
+  }
 	100% {
-		background-position: 0% 50%;
+		background-position: 100% 50%;
 	}
 }
 
@@ -429,9 +433,10 @@ p {
 
 
 .Duck {
-  bottom: -20px;
-  left: 0px;
   position: absolute;
+  width: 150%;
+  bottom: -30px;
+  left: -15px;
 }
 
 .Hero {
@@ -443,6 +448,98 @@ p {
 
 .Banjo {
   position: absolute;
-  left: 5px;
-  top: -20px;
+  width: 200%;
+  left: -20px;
+  bottom: -70px;
+}
+
+.Mii {
+  position: absolute;
+  width: 200%;
+  left: -50px;
+  bottom: -100px;
+}
+
+.Inkling {
+  position: absolute;
+  width: 200%;
+  left: -50px;
+  bottom: -100px;
+}
+
+.Bayonetta {
+  position: absolute;
+  width: 350%;
+  left: -105px;
+  bottom: -240px;
+}
+
+.Corrin {
+  position: absolute;
+  width: 450%;
+  left: -200px;
+  bottom: -370px;
+}
+
+.Mac {
+  position: absolute;
+  width: 200%;
+  left: -30px;
+  bottom: -170px;
+}
+
+.Luma {
+  position: absolute;
+  width: 350%;
+  left: -70px;
+  bottom: -290px;
+}
+
+.Fit {
+  position: absolute;
+  width: 300%;
+  left: -130px;
+  bottom: -340px;
+}
+
+.Diddy {
+  position: absolute;
+  width: 200%;
+  left: -70px;
+  bottom: -100px;
+}
+
+.Pokemon {
+  position: absolute;
+  width: 450%;
+  left: -170px;
+  bottom: -300px;
+}
+
+.Ike {
+  position: absolute;
+  width: 450%;
+  left: -140px;
+  bottom: -336px;
+}
+
+.Cloud {
+  position: absolute;
+  width: 500%;
+  left: -120px;
+  bottom: -400px;
+}
+
+.Man {
+  position: absolute;
+  width: 200%;
+  left: -30px;
+  bottom: -100px;
+}
+
+.Snake {
+  position: absolute;
+  width: 500%;
+  left: -250px;
+  bottom: -400px;
 }

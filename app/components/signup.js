@@ -42,24 +42,24 @@ class Signup extends Component {
   }
 
   submit () {
-    // Axios.post('https://super-smash-api.herokuapp.com/users/sign_up', {
-    //   'firstName': this.firstName.current.value,
-    //   'lastName': this.lastName.current.value,
-    //   'email': this.email.current.value,
-    //   'username': this.username.current.value,
-    //   'mainCharacter': this.state.primary,
-    //   'secondaryCharacter': this.state.secondary,
-    //   'encryptedPassword': this.encryptedPassword.current.value,
-    //   'friendCode': this.friendCode.current.value
-    // })
-    // .then(response => {
-    //   console.log(response);
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    // })
+    Axios.post('https://super-smash-api.herokuapp.com/users/sign_up', {
+      'firstName': this.firstName.current.value,
+      'lastName': this.lastName.current.value,
+      'email': this.email.current.value,
+      'username': this.username.current.value,
+      'mainCharacter': this.state.primary,
+      'secondaryCharacter': this.state.secondary,
+      'encryptedPassword': this.encryptedPassword.current.value,
+      'friendCode': this.friendCode.current.value
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    })
     
-    this.setState({ login: true })
+    // this.setState({ login: true })
   }
 
   render () {

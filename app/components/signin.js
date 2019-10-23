@@ -21,14 +21,14 @@ class Signin extends Component {
   }
 
   submit () {
-    // Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
-    //   'email': this.email.current.value,
-    //   'password': this.password.current.value || ''
-    // })
-    // .then(response => console.log(response))
-    // .catch(error => console.log(error))
+    Axios.post('https://super-smash-api.herokuapp.com/users/sign_in', {
+      'email': this.email.current.value,
+      'password': this.password.current.value || ''
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
 
-    this.setState({ error: true });
+    // this.setState({ error: true });
   }
 
   render () {
