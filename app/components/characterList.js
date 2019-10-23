@@ -57,7 +57,7 @@ class CharacterList extends Component {
   render () {
     return (
       <center>
-        <div className="character-list-wrapper">{
+        <div className="character-list-wrapper" id="rgb-box">{
           characters.map((array, i) => {
             return (
               <div className="character-row-wrapper" key={i}>{
