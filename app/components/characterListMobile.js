@@ -17,6 +17,7 @@ class CharacterListMobile extends Component {
   }
 
   select (name) {
+    window.navigator.vibrate([200, 200, 200]);
     if(name === this.state.primary) {
       this.setState({ primary: '' }, () => {
         this.props.submitCharacters(this.state.primary, this.state.secondary);
