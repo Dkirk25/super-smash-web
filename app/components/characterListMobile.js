@@ -19,14 +19,14 @@ class CharacterListMobile extends Component {
   select (name) {
     // if { primary } is set, reset it
     if(name === this.state.primary) {
-      window.navigator.vibrate([75, 5, 75]);
+      window.navigator.vibrate([75, 20, 75]);
       this.setState({ primary: '' }, () => {
         this.props.submitCharacters(this.state.primary, this.state.secondary);
       });
     }
     // if { secondary } is set, reset it
     else if (name === this.state.secondary) {
-      window.navigator.vibrate([75, 5, 75]);
+      window.navigator.vibrate([75, 20, 75]);
       this.setState({ secondary: '' }, () => {
         this.props.submitCharacters(this.state.primary, this.state.secondary);
       });
