@@ -17,17 +17,23 @@ class CharacterListMobile extends Component {
   }
 
   select (name) {
-    window.navigator.vibrate(100);
+    // if { primary } is set, reset it
     if(name === this.state.primary) {
+      window.navigator.vibrate([75, 5, 75]);
       this.setState({ primary: '' }, () => {
         this.props.submitCharacters(this.state.primary, this.state.secondary);
       });
-    } else if (name === this.state.secondary) {
+    }
+    // if { secondary } is set, reset it
+    else if (name === this.state.secondary) {
+      window.navigator.vibrate([75, 5, 75]);
       this.setState({ secondary: '' }, () => {
         this.props.submitCharacters(this.state.primary, this.state.secondary);
       });
     } else {
+      // if { primary } is not set, set it
       if(!this.state.primary) {
+        window.navigator.vibrate(75);
         this.setState({ primary: name }, () => {
           if(this.state.secondary) {
             // send main and secondary back to sign up
@@ -38,7 +44,10 @@ class CharacterListMobile extends Component {
             this.props.submitCharacters(this.state.primary, this.state.secondary);
           }
         });
-      } else {
+      } 
+      // if { secondary } is not set, set it
+      else {
+        window.navigator.vibrate(75);
         this.setState({ secondary: name }, () => {
           // send main and secondary back to sign up
           console.log('Primary:', this.state.primary);
