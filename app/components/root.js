@@ -58,8 +58,8 @@ class Root extends Component {
           </Route>
           <Route path='/'>
             <Header />
-            <Landing />
-            {/* <Signup /> */}
+            {/* <Landing /> */}
+            <Signup />
           </Route>
         </Switch>
       </Router>

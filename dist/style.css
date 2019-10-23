@@ -441,9 +441,9 @@ p {
 
 .Hero {
   position: absolute;
-  width: 400%;
-  left: -170px;
-  top: -30px;
+  width: 550%;
+  left: -260px;
+  top: -50px;
 }
 
 .Banjo {
@@ -542,4 +542,74 @@ p {
   width: 500%;
   left: -250px;
   bottom: -400px;
+}
+
+.Wario {
+  position: absolute;
+  width: 200%;
+  left: -30px;
+  bottom: -100px;
+}
+
+.Villager {
+  position: absolute;
+  width: 180%;
+  left: -25px;
+  bottom: -80px;
+}
+
+.Ken {
+  position: absolute;
+  width: 350%;
+  left: -170px;
+  bottom: -370px;
+}
+
+.Ganondorf {
+  position: absolute;
+  width: 400%;
+  left: -140px;
+  bottom: -310px;
+}
+
+.Young {
+  position: absolute;
+  width: 270%;
+  left: -120px;
+  bottom: -170px;
+}
+
+.Lucina {
+  position: absolute;
+  width: 450%;
+  left: -170px;
+  bottom: -360px;
+}
+
+.Marth {
+  position: absolute;
+  width: 500%;
+  left: -210px;
+  bottom: -420px;
+}
+
+.Falco {
+  position: absolute;
+  width: 250%;
+  left: -70px;
+  bottom: -180px;
+}
+
+.Jigglypuff {
+  position: absolute;
+  width: 115%;
+  left: -6px;
+  bottom: -10px;
+}
+
+.Captain {
+  position: absolute;
+  width: 440%;
+  left: -190px;
+  bottom: -360px;
 }
