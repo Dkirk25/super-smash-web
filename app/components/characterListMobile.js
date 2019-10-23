@@ -51,7 +51,7 @@ class CharacterListMobile extends Component {
   render () {
     return (
       <center>
-        <div className="character-list-mobile-wrapper">
+        <div className="character-list-mobile-wrapper" id="rgb-box">
           <div className="character-list-mobile">
             {characters.list.map((name, i) => (
             <CharacterMobile name={name} select={this.select} primary={this.state.primary} secondary={this.state.secondary} key={i}/>
