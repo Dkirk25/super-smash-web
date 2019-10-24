@@ -46,8 +46,8 @@ class Signin extends Component {
     return (
       <div>
         <center><Back path=''/></center>
-        <Input placeholder="email" ref={this.email}/>
-        <Input placeholder="password" ref={this.password}/>
+        <Input placeholder="email" ref={this.email} autoType="email" enter={this.submit}/>
+        <Input placeholder="password" ref={this.password} autoType="password" enter={this.submit}/>
         <center className="signin-submit-wrapper"><button className="submit" onClick={this.submit}>submit</button></center>
         <center>{this.state.error ? <p className="error-message">email or password is incorrect</p> : <p></p>}</center>
         {this.state.login ? <Redirect to='/league'></Redirect> : null}

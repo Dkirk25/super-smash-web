@@ -37,9 +37,9 @@ class League extends Component {
           <div className="league-user-wrapper-main">
             <center>
               <div className="league-user-wrapper">
-                <p className="league-user-username league-header">Username</p>
-                <p className="league-user-main league-header">Main</p>
-                <p className="league-user-points league-header">Score</p>
+                <p className="league-header-username">Username</p>
+                <p className="league-header-main">Main</p>
+                <p className="league-header-points">Score</p>
               </div>
               {this.state.users.map((user, i) => {
                 return(<LeagueUser user={user} key={i} updateUser={this.props.updateUser}/>)

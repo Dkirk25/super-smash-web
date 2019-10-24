@@ -64,7 +64,8 @@ class Root extends Component {
           <Route path='/'>
             <Header />
             <Landing />
-            {/* <Signup /> */}
+            {/* <League updateUser={this.updateUser}/>
+            <Signup /> */}
           </Route>
         </Switch>
       </Router>
