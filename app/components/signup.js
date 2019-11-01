@@ -8,9 +8,9 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import Back from './back';
-import Input from './input';
-import Submit from './submit';
+import Back from '../utility/back';
+import Input from '../utility/input';
+import Submit from '../utility/submit';
 import CharacterSelection from './characterSelection';
 import StockIcon from './stockIcon';
 
@@ -55,6 +55,16 @@ class Signup extends Component {
     .then(response => {
       console.log(response);
       this.setState({ login: true });
+      this.props.userSignin({
+        'firstName': this.firstName.current.value,
+        'lastName': this.lastName.current.value,
+        'email': this.email.current.value,
+        'username': this.username.current.value,
+        'mainCharacter': this.state.primary,
+        'secondaryCharacter': this.state.secondary,
+        'encryptedPassword': this.encryptedPassword.current.value,
+        'friendCode': this.friendCode.current.value
+      });
     })
     .catch(error => {
       console.log(error);

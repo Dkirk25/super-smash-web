@@ -4,8 +4,8 @@ import { Redirect } from 'react-router-dom';
 
 import validate from '../helpers/validate';
 
-import Back from './back';
-import Input from './input';
+import Back from '../utility/back';
+import Input from '../utility/input';
 
 class Signin extends Component {
   constructor (props) {
@@ -31,6 +31,7 @@ class Signin extends Component {
       .then(response => {
         console.log(response);
         this.setState({ login: true });
+        this.props.userSignin(response.data);
       })
       .catch(error => {
         console.log(error);

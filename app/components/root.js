@@ -8,12 +8,14 @@ import {
   Link
 } from 'react-router-dom';
 
-import Header from './header';
+import Header from '../utility/header';
 import Profile from './profile';
 import League from './league';
 import Landing from './landing';
 import Signin from './signin';
 import Signup from './signup';
+import Results from './results';
+import Matches from './matches';
 
 class Root extends Component {
   constructor () {
@@ -22,11 +24,13 @@ class Root extends Component {
     this.state = {
       currentUser: '',
       user: '',
+      login: false,
       userid: null,
     }
 
     this.updateUser = this.updateUser.bind(this);
     this.userSignin = this.userSignin.bind(this);
+    this.updateLogin = this.updateLogin.bind(this);
   }
 
   updateUser (user) {
@@ -35,6 +39,11 @@ class Root extends Component {
 
   userSignin (currentUser) {
     this.setState({ currentUser });
+    this.updateUser();
+  }
+
+  updateLogin () {
+    this.setState({ login: true });
   }
 
   render () {
@@ -42,27 +51,35 @@ class Root extends Component {
       <Router>
         <Switch>
           <Route path='/league'>
-            <Header />
+            <Header login={this.state.login} />
             <League updateUser={this.updateUser}/>
           </Route>
           <Route path='/profile'>
-            <Header />
+            <Header login={this.state.login} />
             <Profile user={this.state.user}/>
           </Route>
           <Route path='/schedule'>
-            <Header />
+            <Header login={this.state.login} />
             {/* <Schedule /> */}
           </Route>
+          <Route path='/results'>
+            <Header login={this.state.login}/>
+            <Results />
+          </Route>
+          <Route path='/matches'>
+            <Header login={this.state.login}/>
+            <Matches />
+          </Route>
           <Route path='/signin'>
-            <Header />
-            <Signin />
+            <Header login={this.state.login} />
+            <Signin userSignin={this.userSignin}/>
           </Route>
           <Route path='/signup'>
-            <Header />
-            <Signup />
+            <Header login={this.state.login} />
+            <Signup userSignin={this.userSignin}/>
           </Route>
           <Route path='/'>
-            <Header />
+            <Header login={this.state.login} />
             <Landing />
             {/* <League updateUser={this.updateUser}/>
             <Signup /> */}

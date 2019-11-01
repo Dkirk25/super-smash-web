@@ -7,7 +7,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import Header from './header';
+import Header from '../utility/header';
 import authenticateUser from '../helpers/authenticateUser';
 
 const Landing = (props) => {

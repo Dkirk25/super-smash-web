@@ -3,7 +3,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-import Back from './back';
+import Back from '../utility/back';
 
 const Profile = ({ user }) => {
   // let user;
