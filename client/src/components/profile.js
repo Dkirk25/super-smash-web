@@ -1,9 +1,6 @@
-// show info for a single user
+import React from "react";
 
-import React from 'react';
-import Axios from 'axios';
-
-import Back from '../utility/back';
+import Back from "../utility/back";
 
 const Profile = ({ user }) => {
   // let user;
@@ -19,13 +16,16 @@ const Profile = ({ user }) => {
       <center>
         <p className="profile-username">{user.username}</p>
         <p className="profile-score">{`${user.points}`}</p>
-        <span id="primary" className="profile-primary">{`${user.mainCharacter}`}</span>
+        <span
+          id="primary"
+          className="profile-primary"
+        >{`${user.mainCharacter}`}</span>
         {/* <span onMouseLeave={hidePrimary} id="primary-label" className="hidden">{'Primary'}</span> */}
         <p className="profile-secondary">{`${user.secondaryCharacter}`}</p>
-        <Back path='league'/>
+        <Back path="league" />
       </center>
     </div>
-  )
-}
+  );
+};
 
 export default Profile;
