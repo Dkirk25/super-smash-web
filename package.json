@@ -1,23 +1,68 @@
 {
-  "name": "super-smash-web",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build:prod": "npm run build:client && npm run build:server",
-    "build:client": "cd client && npm run build && cd ..",
-    "build:server": "cd server && npm run build && cd .."
+  "name": "super-smash-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "bulma": "^0.8.1",
+    "clsx": "^1.1.0",
+    "firebase": "^7.13.0",
+    "formik": "^2.1.4",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dkirk25/super-smash-web.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Donald Kirk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Dkirk25/super-smash-web/issues"
   },
-  "homepage": "https://github.com/Dkirk25/super-smash-web#readme",
-  "dependencies": {}
+  "scripts": {
+    "deploy:hosting": "npm run build && firebase deploy --only hosting",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/react": "^5.3.18",
+    "@types/jest": "^25.1.4",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.31",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-router-dom": "^5.1.3",
+    "typescript": "^3.8.3"
+  }
 }
