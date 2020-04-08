@@ -1,16 +1,13 @@
 import React from "react";
 import clsx from "clsx";
-import { BulmaComponentProps } from "./types";
-import { useBulma } from "./utils/helpers";
-import { BulmaColor } from "./modifiers";
+
+import { useBulma } from "../utils/helpers";
+import { BulmaIsSizeModifier, BulmaVariantModifier } from "../modifiers";
 
 export interface TextInputProps
-  extends BulmaComponentProps<
-    React.HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
-    {
-      color?: BulmaColor;
-    }
-  > {}
+  extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+    BulmaIsSizeModifier,
+    BulmaVariantModifier {}
 
 export const TextInput = React.forwardRef((props: TextInputProps, ref: any) => {
   const { color, className, ...rest } = props;

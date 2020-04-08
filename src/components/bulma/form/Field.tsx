@@ -1,14 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import { FormControl } from "./FormControl";
+import { BulmaVariantModifier } from "../modifiers";
 
-export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FieldProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    BulmaVariantModifier {
   grouped?: boolean;
   multiline?: boolean;
   hasAddons?: boolean;
   label?: string;
-  success?: boolean;
-  error?: boolean;
   helpText?: string;
 }
 
@@ -17,19 +17,19 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  * Form Field: https://bulma.io/documentation/form/general/#form-field
  */
-export const Field: React.FC<FieldProps> = props => {
+export const Field: React.FC<FieldProps> = (props) => {
   const {
     children,
     label,
     className,
     multiline,
-    success,
-    error,
     grouped,
     hasAddons,
     helpText,
+    variant,
     ...rest
   } = props;
+
   return (
     <div
       className={clsx(
@@ -37,20 +37,21 @@ export const Field: React.FC<FieldProps> = props => {
         {
           "has-addons": hasAddons,
           "is-grouped": grouped,
-          "is-grouped-multiline": multiline
+          "is-grouped-multiline": multiline,
         },
         className
       )}
       {...rest}
     >
       {label && <label className={clsx("label")}>{label}</label>}
-      {!grouped && <FormControl>{children}</FormControl>}
-      {grouped && children}
+      {React.Children.map(children, (child: any) =>
+        React.cloneElement(child, {})
+      )}
       {helpText && (
         <p
           className={clsx("help", {
-            "is-success": success && !error,
-            "is-danger": error
+            "is-success": variant === "success",
+            "is-danger": variant === "danger",
           })}
         >
           {helpText}

@@ -28,9 +28,7 @@ function isV<T>(value?: unknown): value is BulmaBreakpointMap<T> {
 }
 
 export function createBreakpointClasses<T>(classname: string, prop: ViewportValue<T>): string {
-  console.log(`${classname}`, prop, isV(prop));
   if (isV(prop)) {
-
     return clsx({
       [createBreakpointClassname(classname, prop.mobile, 'mobile')]: prop.mobile !== undefined,
       [createBreakpointClassname(classname, prop.tablet, 'tablet')]: prop.tablet !== undefined,

@@ -1,16 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 
-import { BulmaComponentProps } from "../types";
 import { useBulma } from "../utils/helpers";
 
-export interface LevelProps
-  extends BulmaComponentProps<React.HTMLAttributes<HTMLDivElement>> {
+export interface LevelProps extends React.HTMLAttributes<HTMLDivElement> {
   component?: React.ElementType;
   isMobile?: boolean;
 }
 
-export const Level: React.FC<LevelProps> = props => {
+export const Level: React.FC<LevelProps> = (props) => {
   const { component = "div", className, isMobile, children, ...rest } = props;
   const [bulma] = useBulma();
 
@@ -21,11 +19,11 @@ export const Level: React.FC<LevelProps> = props => {
         "level",
         bulma,
         {
-          "is-mobile": isMobile
+          "is-mobile": isMobile,
         },
         className
       ),
-      ...rest
+      ...rest,
     },
     children
   );
