@@ -7,26 +7,28 @@ export interface ColumnsProps
   extends BulmaComponentProps<
     React.HTMLAttributes<HTMLDivElement>,
     {
-      gapless?: boolean;
-      multiline?: boolean;
+      isVariable?: boolean;
+      isGapless?: boolean;
+      isMultiline?: boolean;
       isCentered?: boolean;
       hasAddons?: boolean;
-      mobile?: boolean;
-      desktop?: boolean;
+      isMobile?: boolean;
+      isDesktop?: boolean;
     },
     "color"
   > {}
 
 export const Columns: React.FC<ColumnsProps> = (props) => {
   const {
-    mobile,
+    isMobile,
     isCentered,
-    desktop,
+    isDesktop,
     children,
     className,
     hasAddons,
-    gapless,
-    multiline,
+    isGapless,
+    isMultiline,
+    isVariable,
     ...rest
   } = props;
 
@@ -38,11 +40,12 @@ export const Columns: React.FC<ColumnsProps> = (props) => {
         bulma,
         {
           "has-addons": hasAddons,
-          "is-gapless": gapless,
-          "is-multiline": multiline,
-          "is-mobile": mobile,
-          "is-desktop": desktop,
+          "is-gapless": isGapless,
+          "is-multiline": isMultiline,
+          "is-mobile": isMobile,
+          "is-desktop": isDesktop,
           "is-centered": isCentered,
+          "is-variable": isVariable,
         },
         className
       )}
