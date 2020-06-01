@@ -1,6 +1,11 @@
 import "bulma/css/bulma.css";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import Profile from "./components/profile";
 import Results from "./components/results";
@@ -15,7 +20,7 @@ const Signup = React.lazy(() => import("./pages/Signup"));
 
 export interface AppProps {}
 
-const App: React.FC<AppProps> = props => {
+const App: React.FC<AppProps> = (props) => {
   return (
     <Page>
       <React.Suspense fallback={<div>loading...</div>}>
@@ -29,6 +34,7 @@ const App: React.FC<AppProps> = props => {
             <Route exact path="/signin" component={SignInPage} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/" component={Landing} />
+            <Redirect to="/signin" />
           </Switch>
         </Router>
       </React.Suspense>

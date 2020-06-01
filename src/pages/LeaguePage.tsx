@@ -15,7 +15,7 @@ const LeaguePage: React.FC<LeaguePageProps> = (props) => {
 
   return (
     <Container>
-      <Columns align="center">
+      <Columns>
         <Column spanSize={4}>
           <Table bordered>
             <thead>

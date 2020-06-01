@@ -32,7 +32,7 @@ const SignInPage: React.FC<SignInPageProps> = (props) => {
   }
 
   return (
-    <Columns align="center">
+    <Columns isCentered>
       <Column spanSize="one-quarter">
         <Container style={{ textAlign: "center" }}>
           <Field>

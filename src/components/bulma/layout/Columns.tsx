@@ -9,7 +9,7 @@ export interface ColumnsProps
     {
       gapless?: boolean;
       multiline?: boolean;
-      align?: "center" | "right";
+      isCentered?: boolean;
       hasAddons?: boolean;
       mobile?: boolean;
       desktop?: boolean;
@@ -17,10 +17,10 @@ export interface ColumnsProps
     "color"
   > {}
 
-export const Columns: React.FC<ColumnsProps> = props => {
+export const Columns: React.FC<ColumnsProps> = (props) => {
   const {
     mobile,
-    align,
+    isCentered,
     desktop,
     children,
     className,
@@ -41,7 +41,8 @@ export const Columns: React.FC<ColumnsProps> = props => {
           "is-gapless": gapless,
           "is-multiline": multiline,
           "is-mobile": mobile,
-          "is-desktop": desktop
+          "is-desktop": desktop,
+          "is-centered": isCentered,
         },
         className
       )}

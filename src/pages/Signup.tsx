@@ -47,7 +47,7 @@ const Signup: React.FC<SignUpProps> = (props) => {
 
   return (
     <Container>
-      <Columns align="center">
+      <Columns isCentered>
         <Column spanSize={4}>
           <Back path="" />
           <Field>
