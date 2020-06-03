@@ -3,9 +3,9 @@ import React from "react";
 import { action } from "@storybook/addon-actions";
 
 import { ProgressBar, Container } from "../components/bulma";
-import { BulmaColorVariant, BulmaSize } from "../components/bulma/modifiers";
+import { ThemeColorVariant, BulmaSize } from "../components/bulma/modifiers";
 
-const colors: Array<BulmaColorVariant | undefined> = [
+const colors: Array<ThemeColorVariant | undefined> = [
   undefined,
   "white",
   "black",
@@ -16,12 +16,12 @@ const colors: Array<BulmaColorVariant | undefined> = [
   "warning",
   "danger",
   "text",
-  "link"
+  "link",
 ];
 
 export default {
   title: "ProgressBar",
-  component: ProgressBar
+  component: ProgressBar,
 };
 
 export const Variants = () => (

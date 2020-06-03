@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-export type BulmaColorVariant =
+export type ThemeColorVariant =
   | 'primary'
   | 'secondary'
   | 'link'
@@ -14,7 +14,7 @@ export type BulmaColorVariant =
 
 
 export interface BulmaVariantModifier {
-  variant?: BulmaColorVariant;
+  variant?: ThemeColorVariant;
   shade?: 'light' | 'dark';
 }
 

@@ -8,6 +8,7 @@ export interface ColumnsProps
     React.HTMLAttributes<HTMLDivElement>,
     {
       isVariable?: boolean;
+      isVerticallyCentered?: boolean;
       isGapless?: boolean;
       isMultiline?: boolean;
       isCentered?: boolean;
@@ -20,6 +21,7 @@ export interface ColumnsProps
 
 export const Columns: React.FC<ColumnsProps> = (props) => {
   const {
+    isVerticallyCentered,
     isMobile,
     isCentered,
     isDesktop,
@@ -46,6 +48,7 @@ export const Columns: React.FC<ColumnsProps> = (props) => {
           "is-desktop": isDesktop,
           "is-centered": isCentered,
           "is-variable": isVariable,
+          "is-vcentered": isVerticallyCentered,
         },
         className
       )}
