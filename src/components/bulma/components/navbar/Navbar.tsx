@@ -1,16 +1,43 @@
 import * as React from "react";
 import clsx from "clsx";
+import { ThemeColorVariant } from "../../modifiers";
 
 export interface NavbarProps {
   readonly className?: string;
   readonly isTransparent?: boolean;
+  /**
+   * Add the corresponding has-navbar-fixed-top
+   * or has-navbar-fixed-bottom modifier to either
+   * <html> or <body> element to provide the appropriate
+   * padding to the page
+   */
+  readonly isFixedTo?: "top" | "bottom";
+  readonly color?: ThemeColorVariant;
+  readonly isSpaced?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = (props) => {
-  const { className, children, isTransparent } = props;
+  const {
+    isSpaced,
+    color,
+    className,
+    children,
+    isTransparent,
+    isFixedTo,
+  } = props;
   return (
     <nav
-      className={clsx("navbar", { "is-transparent": isTransparent }, className)}
+      className={clsx(
+        "navbar",
+        {
+          "is-transparent": isTransparent,
+          "is-fixed-top": isFixedTo === "top",
+          "is-fixed-bottom": isFixedTo === "bottom",
+          [`is-${color}`]: !!color,
+          "is-spaced": isSpaced,
+        },
+        className
+      )}
     >
       {children}
     </nav>
@@ -96,10 +123,12 @@ export interface NavbarItemProps
   readonly isExpanded?: boolean;
   readonly isActive?: boolean;
   readonly isTab?: boolean;
+  readonly isDropUp?: boolean;
 }
 
 export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
   const {
+    isDropUp,
     isActive,
     isExpanded,
     isTab,
@@ -120,6 +149,7 @@ export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
         className={clsx(
           "navbar-item",
           {
+            "has-dropdown-up": isDropUp,
             "has-dropdown": hasDropdown,
             "is-hoverable": isHoverable,
             "is-expanded": isExpanded,
@@ -156,30 +186,52 @@ export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
 export interface NavbarLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   readonly className?: string;
+  readonly isArrowless?: boolean;
 }
 
 export const NavbarLink: React.FC<NavbarLinkProps> = (props) => {
-  const { className, children, href, ...rest } = props;
+  const { isArrowless, className, children, href, ...rest } = props;
   // eslint-disable-next-line jsx-a11y/anchor-is-valid
   return (
-    <a className={clsx("navbar-link", className)} href={href} {...rest}>
+    <a
+      className={clsx(
+        "navbar-link",
+        { "is-arrowless": isArrowless },
+        className
+      )}
+      href={href}
+      {...rest}
+    >
       {children}
     </a>
   );
 };
 
+/**
+ * isActive is used for JS to open the dropdown
+ */
 export interface NavbarDropdownProps
   extends Pick<NavbarItemProps, "isActive" | "isExpanded"> {
   readonly className?: string;
   readonly primary?: React.ReactNode;
+  readonly isRight?: boolean;
+  readonly isBoxed?: boolean;
 }
 
 export const NavbarDropdown: React.FC<NavbarDropdownProps> = (props) => {
-  const { className, children, primary, ...rest } = props;
+  const { className, children, primary, isRight, isBoxed, ...rest } = props;
   return (
     <NavbarItem hasDropdown isHoverable {...rest}>
       <NavbarLink>{primary}</NavbarLink>
-      <div className={clsx("navbar-dropdown", className)}>{children}</div>
+      <div
+        className={clsx(
+          "navbar-dropdown",
+          { "is-right": isRight, "is-boxed": isBoxed },
+          className
+        )}
+      >
+        {children}
+      </div>
     </NavbarItem>
   );
 };
