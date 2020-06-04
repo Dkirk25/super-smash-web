@@ -1,7 +1,14 @@
 import "bulma/css/bulma.css";
 import React from "react";
 
-import { Tabs, Tab, Section, Container, Text } from "../components/bulma";
+import {
+  Tabs,
+  Tab,
+  Section,
+  Container,
+  Text,
+  Content,
+} from "../components/bulma";
 
 export default {
   title: "Tabs",
@@ -94,23 +101,29 @@ export const variants = () => {
   );
 };
 export const Controlled: React.FC<any> = () => {
-  const [tab, setTab] = React.useState<string | undefined>(undefined);
+  const [tab, setTab] = React.useState<string>("home");
   return (
     <Section>
       <Container>
         <Text>Active Tab: {tab || "none"}</Text>
         <Tabs isVariant="boxed" activeTab={tab} onTabChange={setTab}>
-          <Tab tabKey="Home">Home</Tab>
-          <Tab tabKey="About">About</Tab>
-          <Tab tabKey="Contact" isActive>
+          <Tab tabKey="home">Home</Tab>
+          <Tab tabKey="about">About</Tab>
+          <Tab tabKey="contact" isActive>
             Contact
           </Tab>
-          {true && (
-            <Tab tabKey="More" disabled>
+          {(tab === "more" || tab === "home") && (
+            <Tab tabKey="more" disabled>
               More
             </Tab>
           )}
         </Tabs>
+      </Container>
+      <Container>
+        {tab === "home" && <Content>Home Content</Content>}
+        {tab === "about" && <Content>Abount Content</Content>}
+        {tab === "contact" && <Content>Contact Content</Content>}
+        {tab === "more" && <Content>More Content</Content>}
       </Container>
     </Section>
   );

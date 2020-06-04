@@ -10,10 +10,8 @@ export interface TabsProps {
   readonly isFullWidth?: boolean;
 
   readonly activeTab?: string;
-  readonly onTabChange?: (tab?: string) => void;
-  readonly children?:
-    | React.ReactElement<TabProps>
-    | React.ReactElement<TabProps>[];
+  readonly onTabChange?: (tab: string) => void;
+  readonly children?: Array<null | false | React.ReactElement<TabProps>>;
 }
 
 export const Tabs: React.FC<TabsProps> = (props) => {
