@@ -4,17 +4,17 @@ import { ViewportValue, createBreakpointClasses } from "./viewport";
 export type TypographySize = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 export type TypographyAlignment = 'centered' | 'justified' | 'left' | 'right';
 export type TypographyTransform = 'capitalized' | 'lowercase' | 'uppercase';
-export type TypographyWeight = 'light' | 'normal' | 'semibold' | 'bold';
+export type TypographyWeight = 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
 export type TypographyFontFamily = 'sans-serif' | 'monospace' | 'primary' | 'secondary' | 'code';
 
 
 export interface BulmaTypographyModifier {
-  textSize?: ViewportValue<TypographySize>;
-  textAlign?: ViewportValue<TypographyAlignment>;
-  textTransform?: TypographyTransform;
-  textWeight?: TypographyWeight;
-  italic?: boolean;
-  fontFamily?: TypographyFontFamily;
+  readonly textSize?: ViewportValue<TypographySize>;
+  readonly textAlign?: ViewportValue<TypographyAlignment>;
+  readonly textTransform?: TypographyTransform;
+  readonly textWeight?: TypographyWeight;
+  readonly italic?: boolean;
+  readonly fontFamily?: TypographyFontFamily;
 }
 
 export const defaultTypographyProps: BulmaTypographyModifier = {

@@ -13,7 +13,7 @@ export interface BoxProps
  *
  * Box: https://bulma.io/documentation/elements/box/
  */
-export const Box: React.FC<BoxProps> = props => {
+export const Box: React.FC<BoxProps> = (props) => {
   const { isHidden, isAligned, children, className, ...rest } = props;
   const [bulma] = useBulma(props);
   return (

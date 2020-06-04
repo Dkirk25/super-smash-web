@@ -20,7 +20,7 @@ const SignInPage: React.FC<SignInPageProps> = (props) => {
 
   const onBack = React.useCallback(() => history.goBack(), [history]);
   const [login] = React.useState(false);
-  const [error] = React.useState(false);
+  // const [error] = React.useState(false);
 
   const email = React.useRef();
   const password = React.useRef();

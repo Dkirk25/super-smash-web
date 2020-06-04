@@ -7,20 +7,13 @@ import {
   Content,
   Columns,
   Title,
-  Navbar,
+  Text,
   Section,
-  NavbarEnd,
-  NavbarMenu,
-  NavbarStart,
-  NavbarItem,
-  NavbarDropdown,
-  NavbarDivider,
-  NavbarBrand,
-  NavbarBurger,
-  ButtonList,
-  Button,
+  Tabs,
+  Tab,
 } from "../components/bulma";
 import MockUsers from "../helpers/users";
+import { Image } from "../components/bulma/elements/Image";
 
 export interface UserProfileProps {}
 
@@ -32,60 +25,48 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
     <Container>
       {/* Row for Photo left side */}
       <Section>
-        <Columns>
-          <Column spanSize="one-fifth">
-            <Box />
-          </Column>
+        <Box style={{ width: "100%", height: "auto" }}>
+          <Columns>
+            <Column spanSize="one-fifth">
+              <Image>
+                <img
+                  src="http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png"
+                  alt="user avatar"
+                />
+              </Image>
+            </Column>
 
-          {/* Username, how long they've been a member, total points  */}
-          <Column>
-            <Title style={{ paddingBottom: "10%" }}>{user.username}</Title>
-            <Columns>
-              <Column spanSize="one-fifth">
-                <Content>
-                  <span style={{ fontWeight: "bold", fontSize: "24px" }}>
-                    Member Since
-                  </span>
+            {/* Username, how long they've been a member, total points  */}
+            <Column>
+              <Title>{user.username}</Title>
+              <Columns>
+                <Column spanSize="one-fifth">
                   <Content>
-                    <span style={{ fontSize: "18px" }}>01/01/2020</span>
+                    <Text fontSize={4} fontWeight="bold" isCased="caps">
+                      Member Since
+                    </Text>
+                    <Text>01/01/2020</Text>
                   </Content>
-                </Content>
-              </Column>
+                </Column>
 
-              <Column>
-                <Content>
-                  <span style={{ fontWeight: "bold", fontSize: "24px" }}>
-                    Total Points
-                  </span>
+                <Column>
                   <Content>
-                    <span style={{ fontSize: "18px" }}>500</span>
+                    <Text fontSize={4} fontWeight="bold" isCased="caps">
+                      Total Points
+                    </Text>
+                    <Text>500</Text>
                   </Content>
-                </Content>
-              </Column>
-            </Columns>
-          </Column>
-        </Columns>
-      </Section>
-
-      <Section>
-        <Navbar isSpaced>
-          <NavbarMenu>
-            <NavbarStart>
-              <NavbarItem style={{ fontSize: "24px" }} href="#">
-                About Me
-              </NavbarItem>
-              <NavbarItem style={{ fontSize: "24px" }} href="#">
-                Previous Matches
-              </NavbarItem>
-              <NavbarItem style={{ fontSize: "24px" }} href="#">
-                Record
-              </NavbarItem>
-              <NavbarItem style={{ fontSize: "24px" }} href="#">
-                Past History
-              </NavbarItem>
-            </NavbarStart>
-          </NavbarMenu>
-        </Navbar>
+                </Column>
+              </Columns>
+            </Column>
+          </Columns>
+        </Box>
+        <Tabs isAligned="center" isSize="medium" isFullWidth>
+          <Tab isActive>About Me</Tab>
+          <Tab> Previous Matches</Tab>
+          <Tab>Record</Tab>
+          <Tab>Past History</Tab>
+        </Tabs>
       </Section>
 
       {/* Create naivagation tabs... Maybe have About Me (Contains fighters, any other contact info), Previous matches, Record (wins, losses, total), Previous Season details? */}

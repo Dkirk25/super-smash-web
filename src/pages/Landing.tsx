@@ -2,12 +2,10 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import authenticateUser from "../helpers/authenticateUser";
-import { Link } from "../components/controls/Link";
 import {
   Columns,
   Column,
   Container,
-  ButtonList,
   Button,
   Content,
 } from "../components/bulma";

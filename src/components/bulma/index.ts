@@ -4,6 +4,7 @@ export * from './components/navbar';
 export * from './components/tabs';
 export * from './components/panel';
 
+
 // Elements
 export * from './elements/Box';
 export * from './elements/Button';
@@ -32,3 +33,4 @@ export * from './form/RadioButton';
 
 export * from './Hero';
 export * from './Section';
+export * from './Text';

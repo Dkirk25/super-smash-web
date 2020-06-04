@@ -16,7 +16,7 @@ const League = React.lazy(() => import("./pages/LeaguePage"));
 const Landing = React.lazy(() => import("./pages/Landing"));
 const SignInPage = React.lazy(() => import("./pages/Signin"));
 const Signup = React.lazy(() => import("./pages/Signup"));
-const Userprofile = React.lazy(() => import("./pages/UserProfile"))
+const Userprofile = React.lazy(() => import("./pages/UserProfile"));
 
 export interface AppProps {}
 
@@ -28,7 +28,12 @@ const App: React.FC<AppProps> = (props) => {
           <Header />
           <Switch>
             <Route exact path="/league" component={League} headerShown={true} />
-            <Route exact path="/profile" component={Userprofile} headerShown={false} />
+            <Route
+              exact
+              path="/profile"
+              component={Userprofile}
+              headerShown={false}
+            />
             <Route exact path="/results" component={Results} />
             <Route exact path="/matches" component={Matches} />
             <Route exact path="/signin" component={SignInPage} />
