@@ -1,5 +1,5 @@
 import "bulma/css/bulma.css";
-import React, { Component } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,8 +27,8 @@ const App: React.FC<AppProps> = (props) => {
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/league" component={League} />
-            <Route exact path="/profile" component={Userprofile} />
+            <Route exact path="/league" component={League} headerShown={true} />
+            <Route exact path="/profile" component={Userprofile} headerShown={false} />
             <Route exact path="/results" component={Results} />
             <Route exact path="/matches" component={Matches} />
             <Route exact path="/signin" component={SignInPage} />

@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Container,
-  Columns,
-  Column,
-  Table,
-  TableRow,
-} from "../components/bulma";
+import { Container, Box, Column, Content, Columns } from "../components/bulma";
 import MockUsers from "../helpers/users";
 
 export interface UserProfileProps {}
@@ -17,38 +11,28 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
 
   return (
     <Container>
+      {/* Row for Photo left side */}
       <Columns>
-        <Column spanSize={4}>
-          <Table bordered>
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Primary</th>
-                <th>Secondary</th>
-                <th>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-                <TableRow key={user.id}>
-                <td>{user.username}</td>
-                <td>{user.mainCharacter}</td>
-                <td>{user.secondaryCharacter}</td>
-                <td>{user.points}</td>
-                </TableRow>
-            </tbody>
-          </Table>
-          <div className="league-title-wrapper">
-            <p className="league-title">League Leaderboard</p>
-          </div>
-          <div className="league-user-wrapper-main">
-            <div className="league-user-wrapper">
-              <p className="league-header-username">Username</p>
-              <p className="league-header-main">Main</p>
-              <p className="league-header-points">Score</p>
-            </div>
-          </div>
+        <Column spanSize="one-fifth">
+          <Box />
         </Column>
+
+        {/* Username, how long they've been a member, total points  */}
+        <Column>Hi</Column>
       </Columns>
+
+      {/* Create naivagation tabs... Maybe have About Me (Contains fighters, any other contact info), Previous matches, Record (wins, losses, total), Previous Season details? */}
+
+      <div className="league-title-wrapper">
+        <p className="league-title">League Leaderboard</p>
+      </div>
+      <div className="league-user-wrapper-main">
+        <div className="league-user-wrapper">
+          <p className="league-header-username">Username</p>
+          <p className="league-header-main">Main</p>
+          <p className="league-header-points">Score</p>
+        </div>
+      </div>
     </Container>
   );
 };
