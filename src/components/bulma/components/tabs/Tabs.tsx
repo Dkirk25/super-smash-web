@@ -1,15 +1,54 @@
 import * as React from "react";
 import clsx from "clsx";
 
+import { TabProps } from "./Tab";
+
 export interface TabsProps {
   readonly isAligned?: "center" | "right";
   readonly isSize?: "small" | "medium" | "large";
   readonly isVariant?: "boxed" | "toggle" | "toggle-rounded";
   readonly isFullWidth?: boolean;
+
+  readonly activeTab?: string;
+  readonly onTabChange?: (tab?: string) => void;
+  readonly children?:
+    | React.ReactElement<TabProps>
+    | React.ReactElement<TabProps>[];
 }
 
 export const Tabs: React.FC<TabsProps> = (props) => {
-  const { children, isAligned, isSize, isVariant, isFullWidth } = props;
+  const {
+    activeTab,
+    children,
+    isAligned,
+    isSize,
+    isVariant,
+    isFullWidth,
+    onTabChange,
+  } = props;
+  const state = React.useState<string | undefined>(undefined);
+  const [active, setActive] = state;
+
+  React.useEffect(() => {
+    setActive(activeTab);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab]);
+
+  React.useEffect(() => {
+    if (onTabChange) {
+      onTabChange(active);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
+  const handleClick = React.useCallback(
+    (event, newTab: string) => {
+      if (newTab !== active) {
+        setActive(newTab);
+      }
+    },
+    [active, setActive]
+  );
   return (
     <div
       className={clsx("tabs", {
@@ -22,7 +61,16 @@ export const Tabs: React.FC<TabsProps> = (props) => {
         "is-right": isAligned === "right",
       })}
     >
-      <ul>{children}</ul>
+      <ul>
+        {React.Children.map(children, (child) =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                onClick: handleClick,
+                isActive: active === child.props.tabKey,
+              })
+            : child
+        )}
+      </ul>
     </div>
   );
 };

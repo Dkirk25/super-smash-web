@@ -1,7 +1,7 @@
 import "bulma/css/bulma.css";
 import React from "react";
 
-import { Tabs, Tab, Section, Container } from "../components/bulma";
+import { Tabs, Tab, Section, Container, Text } from "../components/bulma";
 
 export default {
   title: "Tabs",
@@ -12,9 +12,9 @@ export const basic = () => {
     <Section>
       <Container>
         <Tabs>
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
       </Container>
     </Section>
@@ -26,19 +26,19 @@ export const sizes = () => {
     <Section>
       <Container>
         <Tabs isSize="small">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
         <Tabs isSize="medium">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
         <Tabs isSize="large">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
       </Container>
     </Section>
@@ -50,14 +50,14 @@ export const alignment = () => {
     <Section>
       <Container>
         <Tabs isAligned="center">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
         <Tabs isAligned="right">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
       </Container>
     </Section>
@@ -69,19 +69,47 @@ export const variants = () => {
     <Section>
       <Container>
         <Tabs isVariant="boxed">
-          <Tab>Home</Tab>
-          <Tab>About</Tab>
-          <Tab isActive>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact" isActive>
+            Contact
+          </Tab>
         </Tabs>
         <Tabs isVariant="toggle">
-          <Tab>Home</Tab>
-          <Tab isActive>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About" isActive>
+            About
+          </Tab>
+          <Tab tabKey="Contact">Contact</Tab>
         </Tabs>
         <Tabs isVariant="toggle-rounded">
-          <Tab isActive>Home</Tab>
-          <Tab>About</Tab>
-          <Tab>Contact</Tab>
+          <Tab tabKey="Home" isActive>
+            Home
+          </Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact">Contact</Tab>
+        </Tabs>
+      </Container>
+    </Section>
+  );
+};
+export const Controlled: React.FC<any> = () => {
+  const [tab, setTab] = React.useState<string | undefined>(undefined);
+  return (
+    <Section>
+      <Container>
+        <Text>Active Tab: {tab || "none"}</Text>
+        <Tabs isVariant="boxed" activeTab={tab} onTabChange={setTab}>
+          <Tab tabKey="Home">Home</Tab>
+          <Tab tabKey="About">About</Tab>
+          <Tab tabKey="Contact" isActive>
+            Contact
+          </Tab>
+          {true && (
+            <Tab tabKey="More" disabled>
+              More
+            </Tab>
+          )}
         </Tabs>
       </Container>
     </Section>
