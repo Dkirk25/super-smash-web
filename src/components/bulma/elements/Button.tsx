@@ -2,22 +2,27 @@ import React from "react";
 import clsx from "clsx";
 import { useBulma } from "../utils/helpers";
 import { BulmaComponentProps } from "../types";
-import { BulmaVariantModifier, BulmaIsSizeModifier } from "../modifiers";
+import {
+  BulmaVariantModifier,
+  BulmaIsSizeModifier,
+  ThemeColorVariant,
+} from "../modifiers";
 
 export interface ButtonProps
   extends BulmaComponentProps<React.ButtonHTMLAttributes<HTMLButtonElement>>,
     BulmaVariantModifier,
     BulmaIsSizeModifier {
-  isDelete?: boolean;
-  isOutlined?: boolean;
-  isInverted?: boolean;
-  fullWidth?: boolean;
-  isRounded?: boolean;
-  isLoading?: boolean;
-  isSelected?: boolean;
-  isFocused?: boolean;
-  isActive?: boolean;
-  isStatic?: boolean;
+  readonly color?: ThemeColorVariant;
+  readonly isDelete?: boolean;
+  readonly isOutlined?: boolean;
+  readonly isInverted?: boolean;
+  readonly isFullWidth?: boolean;
+  readonly isRounded?: boolean;
+  readonly isLoading?: boolean;
+  readonly isSelected?: boolean;
+  readonly isFocused?: boolean;
+  readonly isActive?: boolean;
+  readonly isStatic?: boolean;
 }
 
 /**
@@ -25,7 +30,7 @@ export interface ButtonProps
  *
  * Button: https://bulma.io/documentation/elements/button/
  */
-export const Button: React.FC<ButtonProps> = props => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const {
     isSelected: selected,
     color,
@@ -35,7 +40,7 @@ export const Button: React.FC<ButtonProps> = props => {
     className,
     isOutlined: outlined,
     isInverted: inverted,
-    fullWidth,
+    isFullWidth,
     isRounded: rounded,
     isLoading: loading,
     isFocused,
@@ -51,6 +56,7 @@ export const Button: React.FC<ButtonProps> = props => {
       className={clsx(
         bulma,
         {
+          [`is-${color}`]: !!color,
           button: !isDelete,
           delete: isDelete,
           "is-active": isActive,
@@ -61,7 +67,7 @@ export const Button: React.FC<ButtonProps> = props => {
           "is-rounded": rounded,
           "is-inverted": inverted,
           "is-outlined": outlined,
-          "is-fullwidth": fullWidth
+          "is-fullwidth": isFullWidth,
         },
         className
       )}

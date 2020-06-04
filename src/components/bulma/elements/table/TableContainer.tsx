@@ -2,9 +2,18 @@ import React from "react";
 import clsx from "clsx";
 
 export interface TableContainerProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+  extends React.HTMLAttributes<HTMLDivElement> {
+  readonly component?: React.ElementType;
+}
 
-export const TableContainer: React.FC<TableContainerProps> = props => {
-  const { className, children } = props;
-  return <div className={clsx("table-container", className)}>{children}</div>;
+/**
+ * https://bulma.io/documentation/elements/table/#table-container
+ */
+export const TableContainer: React.FC<TableContainerProps> = (props) => {
+  const { component = "div", className, children } = props;
+  return React.createElement(
+    component,
+    { className: clsx("table-container", className) },
+    children
+  );
 };
