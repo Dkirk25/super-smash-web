@@ -2,6 +2,7 @@ export * from './components/Breadcrumb';
 export * from './components/message';
 export * from './components/navbar/Navbar';
 export * from './components/tabs';
+export * from './components/panel';
 
 // Elements
 export * from './elements/Box';

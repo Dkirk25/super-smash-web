@@ -11,7 +11,7 @@ export interface ButtonProps
   isDelete?: boolean;
   isOutlined?: boolean;
   isInverted?: boolean;
-  fullWidth?: boolean;
+  isFullWidth?: boolean;
   isRounded?: boolean;
   isLoading?: boolean;
   isSelected?: boolean;
@@ -25,7 +25,7 @@ export interface ButtonProps
  *
  * Button: https://bulma.io/documentation/elements/button/
  */
-export const Button: React.FC<ButtonProps> = props => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const {
     isSelected: selected,
     color,
@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = props => {
     className,
     isOutlined: outlined,
     isInverted: inverted,
-    fullWidth,
+    isFullWidth,
     isRounded: rounded,
     isLoading: loading,
     isFocused,
@@ -61,7 +61,7 @@ export const Button: React.FC<ButtonProps> = props => {
           "is-rounded": rounded,
           "is-inverted": inverted,
           "is-outlined": outlined,
-          "is-fullwidth": fullWidth
+          "is-fullwidth": isFullWidth,
         },
         className
       )}
