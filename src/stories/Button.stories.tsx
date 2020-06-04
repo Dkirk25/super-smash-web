@@ -78,7 +78,7 @@ export const Modifiers = () => (
   <Section>
     <Container>
       <ButtonList>
-        <Button fullWidth>Full Width</Button>
+        <Button isFullWidth>Full Width</Button>
         <Button isOutlined>Outlined</Button>
         <Button variant="primary" isInverted>
           Inverted

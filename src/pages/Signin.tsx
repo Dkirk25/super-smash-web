@@ -47,7 +47,9 @@ const SignInPage: React.FC<SignInPageProps> = (props) => {
           </Field>
           <ButtonList>
             <Button onClick={onBack}>Back</Button>
-            <Button onClick={submit}>Login</Button>
+            <Button color="primary" onClick={submit}>
+              Login
+            </Button>
           </ButtonList>
         </Container>
       </Column>
