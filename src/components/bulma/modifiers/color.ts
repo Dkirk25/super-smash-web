@@ -1,8 +1,8 @@
 import clsx from "clsx"
-import { BulmaColorVariant } from "./variant";
+import { ThemeColorVariant } from "./variant";
 
 export type BulmaColor =
-  BulmaColorVariant
+  ThemeColorVariant
   | 'white-ter'
   | 'white-bis'
   | 'black-bis'

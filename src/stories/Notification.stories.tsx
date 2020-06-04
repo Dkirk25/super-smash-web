@@ -2,9 +2,9 @@ import "bulma/css/bulma.css";
 import React from "react";
 
 import { Notification, Container, Button } from "../components/bulma";
-import { BulmaColorVariant } from "../components/bulma/modifiers";
+import { ThemeColorVariant } from "../components/bulma/modifiers";
 
-const colors: Array<BulmaColorVariant | undefined> = [
+const colors: Array<ThemeColorVariant | undefined> = [
   undefined,
   "white",
   "black",
@@ -15,17 +15,17 @@ const colors: Array<BulmaColorVariant | undefined> = [
   "warning",
   "danger",
   "text",
-  "link"
+  "link",
 ];
 
 export default {
   title: "Notification",
-  component: Notification
+  component: Notification,
 };
 
 export const Variants = () => (
   <Container>
-    {colors.map(color => (
+    {colors.map((color) => (
       <>
         <Notification variant={color}>
           <Button isDelete></Button>

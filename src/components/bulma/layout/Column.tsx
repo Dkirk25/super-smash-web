@@ -5,7 +5,7 @@ import { BulmaComponentProps } from "../types";
 import {
   BulmaSpanSizeModifier,
   BulmaSpanOffsetModifier,
-  BulmaPercentSpan
+  BulmaPercentSpan,
 } from "../modifiers/span";
 
 export interface ColumnProps
@@ -16,19 +16,19 @@ export interface ColumnProps
     BulmaSpanSizeModifier<BulmaPercentSpan>,
     BulmaSpanOffsetModifier<BulmaPercentSpan> {}
 
-export const Column: React.FC<ColumnProps> = props => {
+export const Column: React.FC<ColumnProps> = (props) => {
   const {
     children,
     spanSize,
     spanOffset,
     className,
-    isNarrow: narrow,
+    isNarrow,
     ...rest
   } = props;
   const [bulma] = useBulma(props);
   return (
     <div
-      className={clsx("column", bulma, { "is-narrow": narrow }, className)}
+      className={clsx("column", bulma, { "is-narrow": isNarrow }, className)}
       {...rest}
     >
       {children}
