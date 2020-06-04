@@ -9,7 +9,10 @@ export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   readonly fullWidth?: boolean;
 }
 
-export const Table: React.FC<TableProps> = props => {
+/**
+ * https://bulma.io/documentation/elements/table/
+ */
+export const Table: React.FC<TableProps> = (props) => {
   const {
     children,
     className,
@@ -29,7 +32,7 @@ export const Table: React.FC<TableProps> = props => {
           "is-striped": striped,
           "is-narrow": narrow,
           "is-hoverable": hoverable,
-          "is-fullwidth": fullWidth
+          "is-fullwidth": fullWidth,
         },
         className
       )}
