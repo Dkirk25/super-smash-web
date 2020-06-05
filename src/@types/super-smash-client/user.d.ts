@@ -4,8 +4,8 @@ declare interface IUser {
   lastName: string;
   email: string;
   username: string;
-  mainCharacter: string;
-  secondaryCharacter: string;
+  mainCharacter: IFighter;
+  secondaryCharacter: IFighter;
   points: number;
 
   // at least 12 characters

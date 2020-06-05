@@ -15,39 +15,17 @@ import {
 import MockUsers from "../../helpers/users";
 import { Image } from "../../components/bulma/elements/Image";
 import { TabContent } from "../../components/TabContent";
-
-
-const AboutMe: React.FC<any> = (props) => {
-  return(
-    <TabContent>
-      <Text>
-        Hi
-      </Text>
-    </TabContent>
-  );
-};
+import AboutMe from "./AboutMe";
+import PastSeason from "./PastSeason";
+import Record from "./Record";
 
 const PreviousMatches: React.FC<any> = (props) => {
-  return(
+  return (
     <TabContent>
-      <Text>
-        Previous Matches
-      </Text>
+      <Text>Previous Matches</Text>
     </TabContent>
   );
 };
-
-const PastHistoryTable: React.FC<any> = (props) => {
-  // const {} = props;
-  return (
-    <TabContent>
-      <Text>
-        Past History
-      </Text>
-    </TabContent>
-  )
-}
-
 
 export interface UserProfileProps {
   readonly content?: any;
@@ -57,31 +35,29 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
   const [users] = React.useState(MockUsers);
   const user = users[0];
 
-  const [tab, setTab] = React.useState<string>('about');
+  const [tab, setTab] = React.useState<string>("about");
 
   const tabContent = React.useMemo(() => {
-    switch(tab) {
-      case 'about':
-        return <AboutMe />
-      case 'previousMatches':
+    switch (tab) {
+      case "about":
+        return <AboutMe userDetails={user} />;
+      case "previousMatches":
         return <PreviousMatches />;
-      case 'record':
-        return null;
-      case 'history':
-        return <PastHistoryTable />;
+      case "record":
+        return <Record />;
+      case "history":
+        return <PastSeason />;
       default:
         return (
           <Container>
             <Text>Some UI Error.</Text>
           </Container>
-        )
+        );
     }
-  }, [tab]);
-
+  }, [tab, user]);
 
   return (
     <Container>
-      {/* Row for Photo left side */}
       <Section>
         <Box style={{ width: "100%", height: "auto" }}>
           <Columns>
@@ -119,16 +95,22 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
             </Column>
           </Columns>
         </Box>
-        <Tabs activeTab={tab} onTabChange={setTab} isAligned="center" isSize="medium" isFullWidth >
-          <Tab tabKey="about" isActive>About Me</Tab>
+        <Tabs
+          activeTab={tab}
+          onTabChange={setTab}
+          isAligned="center"
+          isSize="medium"
+          isFullWidth
+        >
+          <Tab tabKey="about" isActive>
+            About Me
+          </Tab>
           <Tab tabKey="previousMatches">Previous Matches</Tab>
           <Tab tabKey="record">Record</Tab>
           <Tab tabKey="history">Past History</Tab>
         </Tabs>
         {tabContent}
       </Section>
-
-      {/* Create naivagation tabs... Maybe have About Me (Contains fighters, any other contact info), Previous matches, Record (wins, losses, total), Previous Season details? */}
     </Container>
   );
 };
