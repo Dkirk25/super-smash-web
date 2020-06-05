@@ -24,17 +24,22 @@ export const Tabs: React.FC<TabsProps> = (props) => {
     isFullWidth,
     onTabChange,
   } = props;
-  const state = React.useState<string | undefined>(undefined);
+  const state = React.useState<string>(activeTab || '');
   const [active, setActive] = state;
 
   React.useEffect(() => {
-    setActive(activeTab);
+    if (activeTab !== active) {
+      setActive(activeTab || '');
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   React.useEffect(() => {
     if (onTabChange) {
-      onTabChange(active);
+      if ((!activeTab && active !== '') || activeTab !== active) {
+        onTabChange(active);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);

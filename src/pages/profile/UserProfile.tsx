@@ -11,15 +11,73 @@ import {
   Section,
   Tabs,
   Tab,
-} from "../components/bulma";
-import MockUsers from "../helpers/users";
-import { Image } from "../components/bulma/elements/Image";
+} from "../../components/bulma";
+import MockUsers from "../../helpers/users";
+import { Image } from "../../components/bulma/elements/Image";
+import { TabContent } from "../../components/TabContent";
 
-export interface UserProfileProps {}
+
+const AboutMe: React.FC<any> = (props) => {
+  return(
+    <TabContent>
+      <Text>
+        Hi
+      </Text>
+    </TabContent>
+  );
+};
+
+const PreviousMatches: React.FC<any> = (props) => {
+  return(
+    <TabContent>
+      <Text>
+        Previous Matches
+      </Text>
+    </TabContent>
+  );
+};
+
+const PastHistoryTable: React.FC<any> = (props) => {
+  // const {} = props;
+  return (
+    <TabContent>
+      <Text>
+        Past History
+      </Text>
+    </TabContent>
+  )
+}
+
+
+export interface UserProfileProps {
+  readonly content?: any;
+}
 
 const UserProfile: React.FC<UserProfileProps> = (props) => {
   const [users] = React.useState(MockUsers);
   const user = users[0];
+
+  const [tab, setTab] = React.useState<string>('about');
+
+  const tabContent = React.useMemo(() => {
+    switch(tab) {
+      case 'about':
+        return <AboutMe />
+      case 'previousMatches':
+        return <PreviousMatches />;
+      case 'record':
+        return null;
+      case 'history':
+        return <PastHistoryTable />;
+      default:
+        return (
+          <Container>
+            <Text>Some UI Error.</Text>
+          </Container>
+        )
+    }
+  }, [tab]);
+
 
   return (
     <Container>
@@ -61,12 +119,13 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
             </Column>
           </Columns>
         </Box>
-        <Tabs isAligned="center" isSize="medium" isFullWidth>
-          <Tab isActive>About Me</Tab>
-          <Tab> Previous Matches</Tab>
-          <Tab>Record</Tab>
-          <Tab>Past History</Tab>
+        <Tabs activeTab={tab} onTabChange={setTab} isAligned="center" isSize="medium" isFullWidth >
+          <Tab tabKey="about" isActive>About Me</Tab>
+          <Tab tabKey="previousMatches">Previous Matches</Tab>
+          <Tab tabKey="record">Record</Tab>
+          <Tab tabKey="history">Past History</Tab>
         </Tabs>
+        {tabContent}
       </Section>
 
       {/* Create naivagation tabs... Maybe have About Me (Contains fighters, any other contact info), Previous matches, Record (wins, losses, total), Previous Season details? */}

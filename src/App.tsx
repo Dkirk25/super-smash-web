@@ -16,7 +16,7 @@ const League = React.lazy(() => import("./pages/LeaguePage"));
 const Landing = React.lazy(() => import("./pages/Landing"));
 const SignInPage = React.lazy(() => import("./pages/Signin"));
 const Signup = React.lazy(() => import("./pages/Signup"));
-const Userprofile = React.lazy(() => import("./pages/UserProfile"));
+const Userprofile = React.lazy(() => import("./pages/profile/UserProfile"));
 
 export interface AppProps {}
 
