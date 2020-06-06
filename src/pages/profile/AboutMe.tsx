@@ -69,7 +69,9 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
                   </Text>
                 </Column>
               </Columns>
-
+              <Text fontSize={4} fontWeight="bold" isCased="caps">
+                SECONDARY
+              </Text>
               <Columns>
                 <Column spanSize="one-half">
                   <Image>

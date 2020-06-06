@@ -10,7 +10,7 @@ export interface InfoContentProps {
 const InfoContent: React.FC<InfoContentProps> = (props) => {
   return (
     <Columns>
-      <Column spanSize="one-half">
+      <Column spanSize="one-third">
         <Text fontSize={6} fontWeight="bold">
           {props.titleName}
         </Text>
