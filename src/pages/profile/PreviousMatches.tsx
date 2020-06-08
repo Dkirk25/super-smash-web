@@ -10,6 +10,7 @@ const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
     <Columns>
       <Column spanSize={"one-half"}></Column>
       <Column>
+        {/* Call api endpoint to get list of previous matches??? */}
         <PreviousMatchContent />
         <PreviousMatchContent />
         <PreviousMatchContent />
