@@ -1,7 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 
-import authenticateUser from "../helpers/authenticateUser";
 import {
   Columns,
   Column,
@@ -10,6 +8,7 @@ import {
   Content,
 } from "../components/bulma";
 import { auth } from "../services/firebase";
+import { useUserContext } from "../store/user/hooks";
 
 const creds = {
   email: "test@example.com",
@@ -19,8 +18,7 @@ const creds = {
 export interface LandingPageProps {}
 
 const Landing: React.FC<LandingPageProps> = (props) => {
-  const [user, setUser] = React.useState<firebase.User | null>(null);
-  const [token, setToken] = React.useState("");
+  const [user, setUser] = useUserContext();
 
   const handleLogin = () => {
     auth.signInWithEmailAndPassword(creds.email, creds.password).then((res) => {
@@ -30,41 +28,27 @@ const Landing: React.FC<LandingPageProps> = (props) => {
     });
   };
 
-  React.useEffect(() => {
-    auth.onAuthStateChanged((u) => {
-      if (u) {
-        setUser(u);
-      } else {
-        setUser(null);
-      }
-    });
-  }, []);
+  const handleLogout = () => {
+    auth.signOut();
+  };
 
-  React.useEffect(() => {
-    if (user) {
-      user.getIdToken().then((id) => setToken(id));
-    }
-  }, [user]);
-
-  if (authenticateUser()) {
-    return <Redirect to="/league" />;
-  } else {
-    return (
-      <Container>
-        <Columns>
-          <Column spanSize="full">
-            <Content>
-              {user && <p>Email: {user.email}</p>}
-              {token && (
-                <p style={{ overflowWrap: "break-word" }}>Token: {token}</p>
-              )}
-            </Content>
+  return (
+    <Container>
+      <Columns>
+        <Column spanSize="full">
+          <Content>
             {!user && <Button onClick={handleLogin}>Login</Button>}
-          </Column>
-        </Columns>
-      </Container>
-    );
-  }
+            {!!user && <Button onClick={handleLogout}>Logout</Button>}
+            {user && (
+              <pre style={{ overflowWrap: "break-word" }}>
+                {JSON.stringify(user, null, 2)}
+              </pre>
+            )}
+          </Content>
+        </Column>
+      </Columns>
+    </Container>
+  );
 };
 
 export default Landing;

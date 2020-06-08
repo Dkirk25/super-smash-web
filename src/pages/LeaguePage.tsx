@@ -23,7 +23,6 @@ const LeaguePage: React.FC<LeaguePageProps> = (props) => {
                 <th>Username</th>
                 <th>Primary</th>
                 <th>Secondary</th>
-                <th>Score</th>
               </tr>
             </thead>
             <tbody>
@@ -33,7 +32,6 @@ const LeaguePage: React.FC<LeaguePageProps> = (props) => {
                     <td>{user.username}</td>
                     <td>{user.mainCharacter}</td>
                     <td>{user.secondaryCharacter}</td>
-                    <td>{user.points}</td>
                   </TableRow>
                 );
               })}

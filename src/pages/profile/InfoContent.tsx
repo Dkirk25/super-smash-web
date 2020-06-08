@@ -4,20 +4,23 @@ import { Column, Columns, Text } from "../../components/bulma";
 
 export interface InfoContentProps {
   titleName: string;
-  word: string;
+  word?: string;
 }
 
 const InfoContent: React.FC<InfoContentProps> = (props) => {
+  const { titleName, word } = props;
   return (
     <Columns>
       <Column spanSize="one-third">
         <Text fontSize={6} fontWeight="bold">
-          {props.titleName}
+          {titleName}
         </Text>
       </Column>
-      <Column>
-        <Text>{props.word}</Text>
-      </Column>
+      {word && (
+        <Column>
+          <Text>{word}</Text>
+        </Column>
+      )}
     </Columns>
   );
 };

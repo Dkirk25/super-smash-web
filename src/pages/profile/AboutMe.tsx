@@ -4,6 +4,7 @@ import { Box, Column, Content, Columns, Text } from "../../components/bulma";
 import { Image } from "../../components/bulma/elements/Image";
 import { TabContent } from "../../components/TabContent";
 import InfoContent from "./InfoContent";
+import { useFighters } from "../../store/fighters/hooks";
 
 export interface AboutMeProps {
   userDetails: IUser;
@@ -11,6 +12,24 @@ export interface AboutMeProps {
 
 // Contains fighters, any other contact info
 const AboutMe: React.FC<AboutMeProps> = (props) => {
+  const { userDetails } = props;
+  const [fighters] = useFighters();
+
+  const [primary, secondary]: [
+    IFighter | undefined,
+    IFighter | undefined
+  ] = React.useMemo(() => {
+    if (fighters && userDetails) {
+      const mainCharacter = fighters.find(
+        (f) => f.id === userDetails.mainCharacter
+      );
+      const secondaryCharacter = fighters.find(
+        (f) => f.id === userDetails.secondaryCharacter
+      );
+      return [mainCharacter, secondaryCharacter];
+    }
+    return [undefined, undefined];
+  }, [fighters, userDetails]);
   return (
     <TabContent>
       <Columns>
@@ -47,14 +66,14 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
                   <Image>
                     <img
                       style={{ width: "75%" }}
-                      src={props.userDetails.mainCharacter.imageURI}
+                      src={primary?.imageURI}
                       alt="user avatar"
                     />
                   </Image>
                 </Column>
                 <Column>
                   <Text fontSize={3} fontWeight="bold" isCased="caps">
-                    {props.userDetails.mainCharacter.name}
+                    {primary?.name}
                   </Text>
                 </Column>
               </Columns>
@@ -66,14 +85,14 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
                   <Image>
                     <img
                       style={{ width: "75%" }}
-                      src={props.userDetails.secondaryCharacter.imageURI}
+                      src={secondary?.imageURI}
                       alt="user avatar"
                     />
                   </Image>
                 </Column>
                 <Column>
                   <Text fontSize={3} fontWeight="bold" isCased="caps">
-                    {props.userDetails.secondaryCharacter.name}
+                    {secondary?.name}
                   </Text>
                 </Column>
               </Columns>

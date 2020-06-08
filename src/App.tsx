@@ -1,5 +1,6 @@
 import "bulma/css/bulma.css";
 import React from "react";
+import { RecoilRoot } from "recoil";
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,28 +23,35 @@ export interface AppProps {}
 
 const App: React.FC<AppProps> = (props) => {
   return (
-    <Page>
-      <React.Suspense fallback={<div>loading...</div>}>
-        <Router>
-          <Header />
-          <Switch>
-            <Route exact path="/league" component={League} headerShown={true} />
-            <Route
-              exact
-              path="/profile"
-              component={Userprofile}
-              headerShown={false}
-            />
-            <Route exact path="/results" component={Results} />
-            <Route exact path="/matches" component={Matches} />
-            <Route exact path="/signin" component={SignInPage} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/" component={Landing} />
-            <Redirect to="/signin" />
-          </Switch>
-        </Router>
-      </React.Suspense>
-    </Page>
+    <RecoilRoot>
+      <Page>
+        <React.Suspense fallback={<div>loading...</div>}>
+          <Router>
+            <Header />
+            <Switch>
+              <Route
+                exact
+                path="/league"
+                component={League}
+                headerShown={true}
+              />
+              <Route
+                exact
+                path="/profile"
+                component={Userprofile}
+                headerShown={false}
+              />
+              <Route exact path="/results" component={Results} />
+              <Route exact path="/matches" component={Matches} />
+              <Route exact path="/signin" component={SignInPage} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/" component={Landing} />
+              <Redirect to="/signin" />
+            </Switch>
+          </Router>
+        </React.Suspense>
+      </Page>
+    </RecoilRoot>
   );
 };
 

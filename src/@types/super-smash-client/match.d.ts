@@ -1,5 +1,5 @@
 declare interface IFighter {
-  id: number;
+  id: string;
   name: string;
   imageURI?: string;
 }
@@ -9,30 +9,30 @@ declare interface IFighter {
  */
 declare interface IMatch {
   // ID of fighter
-  fighter1Id: number;
+  fighter1Id: string;
   // ID of fighter
-  fighter2Id: number;
-  id: number;
+  fighter2Id: string;
+  id: string;
   // User ID of player who is "home"
-  home: number;
+  home: string;
   // ID of player (IUser)
-  p1Id: number;
+  p1Id: string;
   // ID of player (IUser)
-  p2Id: number;
+  p2Id: string;
   // DateTime of the match starting
   start: string;
   // User ID of the winner
-  winner?: number;
+  winner?: string;
 
   score: IMatchScore;
 }
 
 declare interface IMatchScore {
-  id: number;
+  id: string;
   // Number of PvP fights in a match
   numberOfRounds: number;
   // User ID of the winning player
-  leaderId: number;
+  leaderId: string;
   // the number of rounds won for leader
   leaderWins: number;
 }

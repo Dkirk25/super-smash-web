@@ -2,14 +2,14 @@ import _ from "lodash";
 import sort from "./sort";
 
 const fighter: IFighter = {
-  id: 1,
+  id: '1',
   name: "samus",
   imageURI:
     "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",
 };
 
 const fighter2: IFighter = {
-  id: 2,
+  id: '2',
   name: "kirby",
   imageURI:
     "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",
@@ -23,11 +23,11 @@ const users: IUser[] = _.range(0, 10).map((i) => ({
   id: `${i}`,
   lastName: "Name",
   loss: 0,
-  mainCharacter: fighter,
+  mainCharacter: fighter.id,
   points: 2 * i,
-  secondaryCharacter: fighter2,
-  createdAt: `${Date.now}`,
-  updatedAt: `${Date.now}`,
+  secondaryCharacter: fighter2.id,
+  createdAt: Date.now(),
+  updatedAt: Date.now(),
   username: `username_${i}`,
   win: 0,
 }));

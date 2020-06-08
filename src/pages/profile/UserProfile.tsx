@@ -12,7 +12,6 @@ import {
   Tabs,
   Tab,
 } from "../../components/bulma";
-import MockUsers from "../../helpers/users";
 import { Image } from "../../components/bulma/elements/Image";
 import AboutMe from "./AboutMe";
 import PastSeason from "./PastSeason";
@@ -20,34 +19,37 @@ import Record from "./Record";
 import PreviousMatches from "./previous-matches/PreviousMatches";
 
 import { MockMatchHistory } from "../../models/__mocks__/mock-user";
+import { useCurrentUser } from "../../store/user/hooks";
 
 export interface UserProfileProps {
   readonly content?: any;
 }
 
 const UserProfile: React.FC<UserProfileProps> = (props) => {
-  const [users] = React.useState(MockUsers);
-  const user = users[0];
+  const user = useCurrentUser();
 
   const [tab, setTab] = React.useState<string>("record");
 
   const tabContent = React.useMemo(() => {
-    switch (tab) {
-      case "about":
-        return <AboutMe userDetails={user} />;
-      case "previousMatches":
-        return <PreviousMatches matchHistory={MockMatchHistory} />;
-      case "record":
-        return <Record />;
-      case "history":
-        return <PastSeason />;
-      default:
-        return (
-          <Container>
-            <Text>Some UI Error.</Text>
-          </Container>
-        );
+    if (user) {
+      switch (tab) {
+        case "about":
+          return <AboutMe userDetails={user} />;
+        case "previousMatches":
+          return <PreviousMatches matchHistory={MockMatchHistory} />;
+        case "record":
+          return <Record />;
+        case "history":
+          return <PastSeason />;
+        default:
+          return (
+            <Container>
+              <Text>Some UI Error.</Text>
+            </Container>
+          );
+      }
     }
+    return null;
   }, [tab, user]);
 
   return (
@@ -65,7 +67,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
             </Column>
 
             <Column>
-              <Title>{user.username}</Title>
+              <Title>{user?.username}</Title>
               <Columns>
                 <Column spanSize="one-fifth">
                   <Content>
