@@ -1,17 +1,6 @@
 import React from "react";
 
-import {
-  Container,
-  Box,
-  Column,
-  Content,
-  Columns,
-  Title,
-  Text,
-  Section,
-  Tabs,
-  Tab,
-} from "../../components/bulma";
+import { Box, Column, Content, Columns, Text } from "../../components/bulma";
 import { Image } from "../../components/bulma/elements/Image";
 import { TabContent } from "../../components/TabContent";
 import InfoContent from "./InfoContent";

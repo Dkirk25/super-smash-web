@@ -14,18 +14,10 @@ import {
 } from "../../components/bulma";
 import MockUsers from "../../helpers/users";
 import { Image } from "../../components/bulma/elements/Image";
-import { TabContent } from "../../components/TabContent";
 import AboutMe from "./AboutMe";
 import PastSeason from "./PastSeason";
 import Record from "./Record";
-
-const PreviousMatches: React.FC<any> = (props) => {
-  return (
-    <TabContent>
-      <Text>Previous Matches</Text>
-    </TabContent>
-  );
-};
+import PreviousMatches from "./PreviousMatches";
 
 export interface UserProfileProps {
   readonly content?: any;
@@ -35,7 +27,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
   const [users] = React.useState(MockUsers);
   const user = users[0];
 
-  const [tab, setTab] = React.useState<string>("about");
+  const [tab, setTab] = React.useState<string>("previousMatches");
 
   const tabContent = React.useMemo(() => {
     switch (tab) {
@@ -70,7 +62,6 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
               </Image>
             </Column>
 
-            {/* Username, how long they've been a member, total points  */}
             <Column>
               <Title>{user.username}</Title>
               <Columns>
