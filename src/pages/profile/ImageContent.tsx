@@ -1,9 +1,7 @@
 import React from "react";
 
-import { Box, Column, Content, Columns, Text } from "../../components/bulma";
+import { Column, Columns, Text } from "../../components/bulma";
 import { Image } from "../../components/bulma/elements/Image";
-import { TabContent } from "../../components/TabContent";
-import InfoContent from "./InfoContent";
 
 export interface ImageContentProps {}
 

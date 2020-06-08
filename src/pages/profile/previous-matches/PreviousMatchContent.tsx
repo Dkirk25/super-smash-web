@@ -1,7 +1,13 @@
 import React from "react";
 
-import { Container, Box, Column, Columns, Text } from "../../components/bulma";
-import ImageContent from "./ImageContent";
+import {
+  Container,
+  Box,
+  Column,
+  Columns,
+  Text,
+} from "../../../components/bulma";
+import ImageContent from "../ImageContent";
 
 export interface PreviousMatchesProps {}
 

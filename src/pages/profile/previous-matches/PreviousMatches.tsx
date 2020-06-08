@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Column, Columns } from "../../components/bulma";
+import { Column, Columns } from "../../../components/bulma";
 import PreviousMatchContent from "./PreviousMatchContent";
 
 export interface PreviousMatchesProps {}

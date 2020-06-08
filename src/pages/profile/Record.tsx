@@ -1,28 +1,27 @@
 import React from "react";
 
-import {
-  Container,
-  Box,
-  Column,
-  Content,
-  Columns,
-  Title,
-  Text,
-  Section,
-  Tabs,
-  Tab,
-} from "../../components/bulma";
+import { Column, Columns } from "../../components/bulma";
 import { TabContent } from "../../components/TabContent";
+import RecordContent from "./RecordContent";
 
-export interface SeasonProps {}
+export interface RecordProps {}
 
-//  (wins, losses, total)
-const Season: React.FC<SeasonProps> = (props) => {
+const Record: React.FC<RecordProps> = (props) => {
   return (
     <TabContent>
-      <Text>Hi</Text>
+      <Columns>
+        <Column spanSize={"one-third"}>
+          <RecordContent title={"WINS"} record={"10"} />
+        </Column>
+        <Column>
+          <RecordContent title={"TOTAL"} record={"15"} />
+        </Column>
+        <Column>
+          <RecordContent title={"LOSSES"} record={"5"} />
+        </Column>
+      </Columns>
     </TabContent>
   );
 };
 
-export default Season;
+export default Record;
