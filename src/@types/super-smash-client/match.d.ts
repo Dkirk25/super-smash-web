@@ -1,26 +1,38 @@
 declare interface IFighter {
+  id: number;
   name: string;
   imageURI?: string;
 }
 
+/**
+ * Individual PvP matchup
+ */
 declare interface IMatch {
-  // ID if player (IUser)
-  player1: IUser;
-  // ID if player (IUser)
-  player2: IUser;
-  // ID if fighter
-  fighter1: IFighter;
-  // ID if fighter
-  fighter2: IFighter;
-  // ID if winner
+  // ID of fighter
+  fighter1Id: number;
+  // ID of fighter
+  fighter2Id: number;
+  id: number;
+  // User ID of player who is "home"
+  home: number;
+  // ID of player (IUser)
+  p1Id: number;
+  // ID of player (IUser)
+  p2Id: number;
+  // DateTime of the match starting
+  start: string;
+  // User ID of the winner
   winner?: number;
+
+  score: IMatchScore;
 }
 
-declare interface IMatchEvent {
-  id: string;
-  startTime: string;
-  endTime: string;
-  title: string;
-  updatedAt: number;
-  home: string;
+declare interface IMatchScore {
+  id: number;
+  // Number of PvP fights in a match
+  numberOfRounds: number;
+  // User ID of the winning player
+  leaderId: number;
+  // the number of rounds won for leader
+  leaderWins: number;
 }

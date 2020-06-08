@@ -2,12 +2,14 @@ import _ from "lodash";
 import sort from "./sort";
 
 const fighter: IFighter = {
+  id: 1,
   name: "samus",
   imageURI:
     "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",
 };
 
 const fighter2: IFighter = {
+  id: 2,
   name: "kirby",
   imageURI:
     "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",

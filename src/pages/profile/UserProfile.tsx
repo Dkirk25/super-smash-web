@@ -19,6 +19,8 @@ import PastSeason from "./PastSeason";
 import Record from "./Record";
 import PreviousMatches from "./previous-matches/PreviousMatches";
 
+import { MockMatchHistory } from "../../models/__mocks__/mock-user";
+
 export interface UserProfileProps {
   readonly content?: any;
 }
@@ -34,7 +36,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
       case "about":
         return <AboutMe userDetails={user} />;
       case "previousMatches":
-        return <PreviousMatches />;
+        return <PreviousMatches matchHistory={MockMatchHistory} />;
       case "record":
         return <Record />;
       case "history":

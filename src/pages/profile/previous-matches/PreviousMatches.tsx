@@ -3,17 +3,19 @@ import React from "react";
 import { Column, Columns } from "../../../components/bulma";
 import PreviousMatchContent from "./PreviousMatchContent";
 
-export interface PreviousMatchesProps {}
+export interface PreviousMatchesProps {
+  readonly matchHistory: ReadonlyArray<IMatch>;
+}
 
 const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
+  const { matchHistory } = props;
   return (
     <Columns>
       <Column spanSize={"one-half"}></Column>
       <Column>
-        {/* Call api endpoint to get list of previous matches??? */}
-        <PreviousMatchContent />
-        <PreviousMatchContent />
-        <PreviousMatchContent />
+        {matchHistory.map((match: IMatch) => (
+          <PreviousMatchContent match={match} />
+        ))}
       </Column>
       <Column></Column>
     </Columns>

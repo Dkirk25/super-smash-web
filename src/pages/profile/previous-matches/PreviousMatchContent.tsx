@@ -9,9 +9,12 @@ import {
 } from "../../../components/bulma";
 import ImageContent from "../ImageContent";
 
-export interface PreviousMatchesProps {}
+export interface PreviousMatchesProps {
+  readonly match: IMatch;
+}
 
 const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
+  const { match } = props;
   return (
     <Box style={{ width: "100%" }}>
       <Columns>
@@ -26,7 +29,8 @@ const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
               fontSize={1}
               fontWeight="bold"
             >
-              7 - 1
+              {match.score.leaderWins} -{" "}
+              {match.score.numberOfRounds - match.score.leaderWins}
             </Text>
           </Container>
         </Column>
