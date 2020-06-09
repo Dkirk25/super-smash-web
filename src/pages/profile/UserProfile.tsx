@@ -67,7 +67,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
             </Column>
 
             <Column>
-              <Title>{user?.username}</Title>
+              <Title>{user?.switchUsername}</Title>
               <Columns>
                 <Column spanSize="one-fifth">
                   <Content>

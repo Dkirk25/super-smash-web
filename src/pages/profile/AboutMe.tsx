@@ -45,7 +45,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
             </Text>
             <InfoContent
               titleName="Friend Code:"
-              word={props.userDetails.friendCode}
+              word={props.userDetails.switchFriendCode}
             />
             <InfoContent
               titleName="Full Name:"

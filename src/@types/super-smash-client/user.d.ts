@@ -2,13 +2,13 @@ declare interface IUser {
   id: string;
   firstName: string;
   lastName: string;
-  username: string;
+  switchUsername: string;
 
   mainCharacter: string;
   secondaryCharacter: string;
 
   // at least 12 characters
-  friendCode: string;
+  switchFriendCode: string;
   createdAt: number;
   updatedAt: number;
 
@@ -17,5 +17,4 @@ declare interface IUser {
   email?: string;
   phoneNumber?: string;
   photoURL?: string;
-
 }

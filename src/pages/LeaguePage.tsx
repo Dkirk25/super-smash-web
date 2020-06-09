@@ -29,7 +29,7 @@ const LeaguePage: React.FC<LeaguePageProps> = (props) => {
               {users.map((user: IUser) => {
                 return (
                   <TableRow key={user.id}>
-                    <td>{user.username}</td>
+                    <td>{user.switchUsername}</td>
                     <td>{user.mainCharacter}</td>
                     <td>{user.secondaryCharacter}</td>
                   </TableRow>
