@@ -5,6 +5,7 @@ import { Image } from "../../components/bulma/elements/Image";
 import { TabContent } from "../../components/TabContent";
 import InfoContent from "./InfoContent";
 import { useFighters } from "../../store/fighters/hooks";
+import { useFirebaseImageURI } from "../../hooks/firebase";
 
 export interface AboutMeProps {
   userDetails: IUser;
@@ -30,6 +31,9 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
     }
     return [undefined, undefined];
   }, [fighters, userDetails]);
+
+  const primaryImgRef = useFirebaseImageURI(primary?.imageURI);
+  const secondaryRef = useFirebaseImageURI(secondary?.imageURI);
   return (
     <TabContent>
       <Columns>
@@ -65,8 +69,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
                 <Column spanSize="one-half">
                   <Image>
                     <img
+                      ref={primaryImgRef}
                       style={{ width: "75%" }}
-                      src={primary?.imageURI}
                       alt="user avatar"
                     />
                   </Image>
@@ -84,8 +88,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
                 <Column spanSize="one-half">
                   <Image>
                     <img
+                      ref={secondaryRef}
                       style={{ width: "75%" }}
-                      src={secondary?.imageURI}
                       alt="user avatar"
                     />
                   </Image>
