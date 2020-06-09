@@ -33,8 +33,8 @@ export function useUserContext(): [
 
           // Mock additions to complete user
           switchFriendCode: "111111111111",
-          mainCharacter: "",
-          secondaryCharacter: "",
+          mainCharacter: "1",
+          secondaryCharacter: "2",
           lastName: "Daniels",
           firstName: "Jack",
           createdAt: Date.now(),

@@ -1,15 +1,15 @@
 export const MockFighter1: IFighter = {
   id: "1",
   name: "samus",
-  imageURI:
-    "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",
+  imageURI: "../src/pics/samus.png",
+  // imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/samus.png",
 };
 
 export const MockFighter2: IFighter = {
   id: "2",
   name: "kirby",
-  imageURI:
-    "http://s3.amazonaws.com/mlg-profile-production/user_avatars/defaultUserAvatar.png",
+  imageURI: "D:/Development/React/super-smash-web/src/pics/kirby.png",
+  // imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/kirby.png",
 };
 
 export const MockUser1: IUser = {
