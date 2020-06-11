@@ -104,6 +104,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
           </Box>
         </Column>
       </Columns>
+      <pre>Fighters: {JSON.stringify(fighters, null, 2)}</pre>
     </TabContent>
   );
 };
