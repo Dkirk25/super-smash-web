@@ -1,15 +1,13 @@
 export const MockFighter1: IFighter = {
-  id: "1",
+  id: "0LK7pNWzbbx4VYDOLAyb",
   name: "samus",
-  imageURI: "samus.png",
-  // imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/samus.png",
+  imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/samus.png",
 };
 
 export const MockFighter2: IFighter = {
-  id: "2",
+  id: "oJtRSlt1MzZ1JeZEZbLX",
   name: "kirby",
-  imageURI: "kirby.png",
-  // imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/kirby.png",
+  imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/kirby.png",
 };
 
 export const MockUser1: IUser = {
@@ -19,8 +17,8 @@ export const MockUser1: IUser = {
   fullName: `User 1234 Name`,
   id: "1234",
   lastName: "Name",
-  mainCharacter: MockFighter1.id,
-  secondaryCharacter: MockFighter2.id,
+  mFighterId: MockFighter1.id,
+  sFighterId: MockFighter2.id,
   createdAt: Date.now(),
   updatedAt: Date.now(),
   switchUsername: `username_1234`,
