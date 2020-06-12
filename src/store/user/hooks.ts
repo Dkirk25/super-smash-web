@@ -33,8 +33,8 @@ export function useUserContext(): [
 
           // Mock additions to complete user
           switchFriendCode: "111111111111",
-          mainCharacter: "1",
-          secondaryCharacter: "2",
+          mFighterId: "0LK7pNWzbbx4VYDOLAyb",
+          sFighterId: "oJtRSlt1MzZ1JeZEZbLX",
           lastName: "Daniels",
           firstName: "Jack",
           createdAt: Date.now(),

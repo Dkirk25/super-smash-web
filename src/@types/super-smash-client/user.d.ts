@@ -4,8 +4,8 @@ declare interface IUser {
   lastName: string;
   switchUsername: string;
 
-  mainCharacter: string;
-  secondaryCharacter: string;
+  mFighterId: string;
+  sFighterId: string;
 
   // at least 12 characters
   switchFriendCode: string;

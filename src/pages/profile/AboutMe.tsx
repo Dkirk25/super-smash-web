@@ -22,10 +22,10 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
   ] = React.useMemo(() => {
     if (fighters && userDetails) {
       const mainCharacter = fighters.find(
-        (f) => f.id === userDetails.mainCharacter
+        (f) => f.id === userDetails.mFighterId
       );
       const secondaryCharacter = fighters.find(
-        (f) => f.id === userDetails.secondaryCharacter
+        (f) => f.id === userDetails.sFighterId
       );
       return [mainCharacter, secondaryCharacter];
     }

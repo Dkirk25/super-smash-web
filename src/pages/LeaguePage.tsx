@@ -30,8 +30,8 @@ const LeaguePage: React.FC<LeaguePageProps> = (props) => {
                 return (
                   <TableRow key={user.id}>
                     <td>{user.switchUsername}</td>
-                    <td>{user.mainCharacter}</td>
-                    <td>{user.secondaryCharacter}</td>
+                    <td>{user.mFighterId}</td>
+                    <td>{user.sFighterId}</td>
                   </TableRow>
                 );
               })}
