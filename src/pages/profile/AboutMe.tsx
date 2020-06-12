@@ -32,8 +32,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
     return [undefined, undefined];
   }, [fighters, userDetails]);
 
-  const primaryImgRef = useFirebaseImageURI(primary?.imageURI);
-  const secondaryRef = useFirebaseImageURI(secondary?.imageURI);
+  const primaryImgRef = useFirebaseImageURI(primary?.file);
+  const secondaryRef = useFirebaseImageURI(secondary?.file);
   return (
     <TabContent>
       <Columns>

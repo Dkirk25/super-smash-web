@@ -1,7 +1,7 @@
 declare interface IFighter {
   id: string;
   name: string;
-  imageURI?: string;
+  file?: string;
 }
 
 /**

@@ -1,13 +1,13 @@
 export const MockFighter1: IFighter = {
   id: "0LK7pNWzbbx4VYDOLAyb",
   name: "samus",
-  imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/samus.png",
+  file: "gs://super-smash-web.appspot.com/fighters/portraits/samus.png",
 };
 
 export const MockFighter2: IFighter = {
   id: "oJtRSlt1MzZ1JeZEZbLX",
   name: "kirby",
-  imageURI: "gs://super-smash-web.appspot.com/fighters/portraits/kirby.png",
+  file: "gs://super-smash-web.appspot.com/fighters/portraits/kirby.png",
 };
 
 export const MockUser1: IUser = {
