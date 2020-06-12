@@ -32,7 +32,7 @@ export function useFighters(): [ReadonlyArray<IFighter>] {
       const fighterRef = firestore.collection('fighters')
       const snap = await fighterRef.get();
 
-      const newFighters: IFighter[] = snap.docs.map(document => document.data() as IFighter);
+      const newFighters: IFighter[] = snap.docs.map(document => ({ ...document.data(), id: document.id }) as IFighter);
       setFighters(newFighters);
     }
 
