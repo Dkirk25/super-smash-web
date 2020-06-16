@@ -28,36 +28,23 @@ export const onUserRemoval = functions.auth.user().onDelete(async (user) => {
   return null;
 })
 
-export const onUserProfileUpdate = functions.firestore.document('users/{uid}/{field}').onUpdate(async (change, context) => {
-  const { uid, field } = context.params;
+/**
+ * Database trigger
+ *
+ * Any time you update a property in a user document, this function will run.
+ *
+ * We need to compare the old to the knew and merge any new data (or old) to auth and back.
+ */
+export const onUserProfileUpdate = functions.firestore.document('users/{uid}').onUpdate(async (change, context) => {
+  const { uid } = context.params;
 
-  if (['email', 'phoneNumber', 'fullname'].includes(field)) {
-    const prev = change.before.data();
-    const current = change.after.data();
+  // old user profile
+  const prev = change.before.data();
+  // new user profile
+  const current = change.after.data();
 
-    switch (field) {
-      case 'email':
-        if (prev !== current && !current) {
-          change.after.ref.set(prev);
-        }
-        break;
-      case 'phoneNumber':
-        if (prev !== current && !current) {
-          change.after.ref.set(prev);
-        }
-        break;
-      case 'fullName':
-        if (prev !== current && !current) {
-          change.after.ref.set(prev);
-        }
-        break;
-      default:
-        console.log(uid, field);
-    }
-  }
-
-
-
+  console.log(uid, prev, current)
+  return null;
 })
 
 /**
