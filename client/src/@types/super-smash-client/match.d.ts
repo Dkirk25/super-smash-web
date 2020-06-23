@@ -24,7 +24,7 @@ declare interface IMatch {
   // User ID of the winner
   winner?: string;
 
-  score: IMatchScore;
+  matchScore: IMatchScore;
 }
 
 declare interface IMatchScore {

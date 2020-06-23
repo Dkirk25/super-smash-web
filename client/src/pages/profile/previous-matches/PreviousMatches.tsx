@@ -4,7 +4,7 @@ import { Column, Columns } from "../../../components/bulma";
 import PreviousMatchContent from "./PreviousMatchContent";
 
 export interface PreviousMatchesProps {
-  readonly matchHistory: ReadonlyArray<IMatch>;
+  matchHistory: IMatch[];
 }
 
 const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
@@ -14,12 +14,16 @@ const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
       <Column spanSize={"one-half"}></Column>
       <Column>
         {matchHistory.map((match: IMatch) => (
-          <PreviousMatchContent match={match} />
+          <PreviousMatchContent key={match.id} match={match} />
         ))}
       </Column>
       <Column></Column>
     </Columns>
   );
+};
+
+PreviousMatches.defaultProps = {
+  matchHistory: [],
 };
 
 export default PreviousMatches;

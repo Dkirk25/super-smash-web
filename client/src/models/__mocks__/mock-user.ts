@@ -40,7 +40,7 @@ export const MockMatch1: IMatch = {
   p2Id: "2",
   start: "2020-01-01T00:00:00.000z",
   winner: "1",
-  score: MockMatch1Score,
+  matchScore: MockMatch1Score,
 };
 
 export const MockMatchHistory = [MockMatch1];

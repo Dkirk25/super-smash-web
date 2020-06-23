@@ -10,11 +10,12 @@ import {
 import ImageContent from "../ImageContent";
 
 export interface PreviousMatchesProps {
-  readonly match: IMatch;
+  match: IMatch;
 }
 
 const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
   const { match } = props;
+
   return (
     <Box style={{ width: "100%" }}>
       <Columns>
@@ -23,14 +24,14 @@ const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
         </Column>
         <Column>
           <Container>
-            <Text style={{ textAlign: "center" }}>June 7, 2020</Text>
+            <Text style={{ textAlign: "center" }}>{match.start}</Text>
             <Text
               style={{ paddingTop: "30px", textAlign: "center" }}
               fontSize={1}
               fontWeight="bold"
             >
-              {match.score.leaderWins} -{" "}
-              {match.score.numberOfRounds - match.score.leaderWins}
+              {match.matchScore.leaderWins} -{" "}
+              {match.matchScore.numberOfRounds - match.matchScore.leaderWins}
             </Text>
           </Container>
         </Column>
