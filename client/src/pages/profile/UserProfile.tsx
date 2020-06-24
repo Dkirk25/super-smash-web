@@ -18,7 +18,7 @@ import PastSeason from "./PastSeason";
 import Record from "./Record";
 import PreviousMatches from "./previous-matches/PreviousMatches";
 
-import { useCurrentUser } from "../../store/user/hooks";
+import { useCurrentUser, GetListOfUsers } from "../../store/user/hooks";
 import { useMatches } from "../../store/matches/hooks";
 
 export interface UserProfileProps {
@@ -28,6 +28,7 @@ export interface UserProfileProps {
 const UserProfile: React.FC<UserProfileProps> = (props) => {
   const user = useCurrentUser();
   const [matches] = useMatches();
+  const [users] = GetListOfUsers();
 
   const listOfUserMatches: IMatch[] = React.useMemo(() => {
     if (matches && user) {
@@ -38,7 +39,6 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
     }
     return [];
   }, [matches, user]);
-  console.log(listOfUserMatches);
 
   const [tab, setTab] = React.useState<string>("record");
 
@@ -48,7 +48,9 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
         case "about":
           return <AboutMe userDetails={user} />;
         case "previousMatches":
-          return <PreviousMatches matchHistory={listOfUserMatches} />;
+          return (
+            <PreviousMatches matchHistory={listOfUserMatches} users={users} />
+          );
         case "record":
           return <Record />;
         case "history":
@@ -62,7 +64,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
       }
     }
     return null;
-  }, [tab, user, listOfUserMatches]);
+  }, [tab, user, listOfUserMatches, users]);
 
   return (
     <Container>

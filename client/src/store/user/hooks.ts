@@ -1,5 +1,8 @@
 import { atom, useRecoilState } from "recoil";
 import { useCallback } from "react";
+import { useEffect } from "react";
+
+import { firestore } from "../../services/firebase";
 
 const USER_CONTEXT_KEY = "userContext";
 
@@ -56,4 +59,36 @@ export function useUserContext(): [
 export function useCurrentUser(): IUser | null {
   const [user] = useUserContext();
   return user;
+}
+
+const LIST_USERS_STATE_KEY = "users";
+const specificUsersContextState = atom<IUser[]>({
+  key: LIST_USERS_STATE_KEY,
+  default: [],
+});
+
+export function GetListOfUsers(): [IUser[]] {
+  const [users, setUsers] = useRecoilState(specificUsersContextState);
+
+  /**
+   * useEffect hook is "run this code any time whatever is in [] on line 42 changes (which is nothing, so run once)"
+   */
+  useEffect(() => {
+    console.log("getting user");
+    // This would be our "service" to get all of the matches
+    async function fetchUsers() {
+      // do firebase stuff
+      const userRef = firestore.collection("users");
+      const snap = await userRef.get();
+
+      const newUsers: IUser[] = snap.docs.map(
+        (document) => ({ ...document.data(), id: document.id } as IUser)
+      );
+      setUsers(newUsers);
+    }
+
+    fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  });
+  return [users];
 }

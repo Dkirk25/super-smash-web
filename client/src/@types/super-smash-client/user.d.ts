@@ -17,4 +17,5 @@ declare interface IUser {
   email?: string;
   phoneNumber?: string;
   photoURL?: string;
+  totalGamesPlayed?: number;
 }

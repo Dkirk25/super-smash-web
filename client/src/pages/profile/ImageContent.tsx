@@ -3,10 +3,14 @@ import React from "react";
 import { Column, Columns, Text } from "../../components/bulma";
 import { Image } from "../../components/bulma/elements/Image";
 
-export interface ImageContentProps {}
+export interface ImageContentProps {
+  player?: IUser | any;
+}
 
 // Contains fighters, any other contact info
 const ImageContent: React.FC<ImageContentProps> = (props) => {
+  const { player } = props;
+
   return (
     <Image>
       <img
@@ -25,10 +29,10 @@ const ImageContent: React.FC<ImageContentProps> = (props) => {
         </Column>
         <Column>
           <Text fontSize={7} fontWeight="bold">
-            Kirkpower
+            {player.switchUsername}
           </Text>
           <Text fontSize={7} fontWeight="bold">
-            10th
+            {player.totalGamesPlayed}
           </Text>
         </Column>
       </Columns>

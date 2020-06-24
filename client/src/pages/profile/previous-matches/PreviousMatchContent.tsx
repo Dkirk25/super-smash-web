@@ -9,18 +9,31 @@ import {
 } from "../../../components/bulma";
 import ImageContent from "../ImageContent";
 
-export interface PreviousMatchesProps {
+export interface PreviousMatchContentProps {
   match: IMatch;
+  users: IUser[];
 }
 
-const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
-  const { match } = props;
+const PreviousMatchContent: React.FC<PreviousMatchContentProps> = (props) => {
+  const { match, users } = props;
+
+  const [player1, player2]: [
+    IUser | undefined,
+    IUser | undefined
+  ] = React.useMemo(() => {
+    if (users && match) {
+      const p1 = users.find((u) => u.id === match.p1Id);
+      const p2 = users.find((u) => u.id === match.p2Id);
+      return [p1, p2];
+    }
+    return [undefined, undefined];
+  }, [users, match]);
 
   return (
     <Box style={{ width: "100%" }}>
       <Columns>
         <Column spanSize={"one-third"} style={{ paddingTop: "50px" }}>
-          <ImageContent />
+          <ImageContent player={player1} />
         </Column>
         <Column>
           <Container>
@@ -36,11 +49,11 @@ const PreviousMatches: React.FC<PreviousMatchesProps> = (props) => {
           </Container>
         </Column>
         <Column spanSize={"one-third"} style={{ paddingTop: "50px" }}>
-          <ImageContent />
+          <ImageContent player={player2} />
         </Column>
       </Columns>
     </Box>
   );
 };
 
-export default PreviousMatches;
+export default PreviousMatchContent;

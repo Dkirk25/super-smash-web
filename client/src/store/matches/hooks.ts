@@ -32,8 +32,5 @@ export function useMatches(): [Array<IMatch>] {
     fetchMatches();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log("matches" + matches);
-
   return [matches];
 }
